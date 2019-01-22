@@ -1,0 +1,45 @@
+.team>a>img{
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    display: block;
+
+}
+
+.team>a{
+    text-align: center;
+
+   
+  
+    
+    
+    
+
+}
+.team{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    justify-content: space-between;
+    flex-direction: colomn;
+   
+ 
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color:#A46EBF;
+}
+@media screen and (max-width:500px) {
+.team{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    justify-content: space-between;
+    flex-direction:column;
+    align-items: center;
+  
+}
+}
