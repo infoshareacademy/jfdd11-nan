@@ -12,29 +12,3 @@ h1 {
     font-family: 'Archivo Narrow', sans-serif;
 }
 
-/*HEADER*/
-
-header {
-    display: flex;
-    justify-content: space-around;
-}
-
-
-.header-title {
-    font-family: 'Coiny', cursive;
-    font-size: 100px;
-    margin-bottom: 0px;
-}
-
-.header-content{
-
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.header-content p{
-
-    font-size: 16px;
-    text-align: center;
-}
