@@ -1,0 +1,20 @@
+#list {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #ff9d00;
+}
+
+#list>div {
+        border: 1px solid black;
+        padding: 20px;
+        flex-basis: 300px;
+        margin: 10px;
+    }
+@media (max-width: 600px) {
+
+    #list {
+        flex-direction: column;
+    }
+    
+
+    }
