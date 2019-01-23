@@ -1,15 +1,25 @@
 #list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: #ff9d00;
+    background-color: #fff#ff9d00;
+    margin: 50px 0px 0px 0px;
+    //border: 1px solid black;
 }
-
+#list>h2 {
+    flex-basis: 100%;
+    text-align: center;
+}
 #list>div {
-        border: 1px solid black;
+        //border: 1px solid black;
         padding: 20px;
-        flex-basis: 300px;
-        margin: 10px;
+        text-align: center;
     }
+
+.send>img,.track>img, .reclamation>img  {
+    width: 100px;
+    height: auto;
+}    
 @media (max-width: 600px) {
 
     #list {
