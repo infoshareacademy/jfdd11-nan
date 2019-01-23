@@ -3,18 +3,10 @@
     height: 150px;
     border-radius: 150px;
     display: block;
-
 }
 
 .team>a{
     text-align: center;
-
-   
-  
-    
-    
-    
-
 }
 .team{
     display: flex;
@@ -22,8 +14,6 @@
     padding: 20px;
     justify-content: space-between;
     flex-direction: colomn;
-   
- 
 }
 a{
     text-decoration: none;
