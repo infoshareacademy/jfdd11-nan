@@ -19,14 +19,15 @@ header {
 
 .header-icon {
     height: 350px;
+    
 }
 
 .header-title {
     font-family: 'Coiny', cursive;
     font-size: 100px;
     margin-bottom: 0px;
-    color: rgb(235, 128, 6);
-    text-align: left;
+    color: #E0C2EF;
+    text-align: left    ;
 }
 
 .header-content-paragraph {
@@ -38,7 +39,7 @@ header {
 .subscribe-link {
     text-align: center;
     text-decoration: none;
-    color:  rgb(235, 128, 6);
+    color: #E0C2EF;
     font-family: 'Coiny';
     font-size: 25px;
 }
