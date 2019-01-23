@@ -1,44 +1,43 @@
-.team>div>a>img{
+.team_photo{
     width: 150px;
     height: 150px;
+    border:1px solid var(--medium);
     border-radius: 150px;
     display: block;
 }
-
-.team>div>a{
+.team_link {
     text-align: center;
-}
-.team{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    justify-content: space-between;
-    flex-direction: row;
-}
-a{
     text-decoration: none;
     color: black;
 }
-a:hover{
-    color:#A46EBF;
-    
+.team_link:hover{
+    color:var(--medium);
 }
-.teamVW .teamGW .teamSW .teamDW {
+.team{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    flex-direction: row;
+}
+.team_person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 25%;
-
 }
-@media screen and (max-width:620px) {
+.team_name {
+    text-align: center;
+}
+@media screen and (max-width:700px) {
 .team{
     display: flex;
     justify-content: center;
     padding: 20px;
-    justify-content: space-between;
-    flex-direction:column;
     align-items: center;
     flex-wrap: wrap;
   }
-  .teamVW .teamGW .teamSW .teamDW {
-      width: 25%;
+  .team_person {
+      width: 50%;
 
   }
 }
