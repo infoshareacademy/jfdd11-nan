@@ -45,15 +45,19 @@
             <div id="form">
                 <p class="form_title">To get a message about premiere time of <strong>Tracken Application</strong>,
                     please fill a form below:</p>
-                <form class="form_subscription">
+                <form class="form_subscription" method="post" action="/">
+                    <label for="name" class="form_label">Name</label>
                     <input type="text" name="name" id="name" class="form_input" placeholder="Your name" required>
+                    <label for="email" class="form_label">Email adress</label>
                     <input type="email" name="email" id="email" class="form_input" placeholder="Your email adress"
                         required>
+                    <label for="comment" class="form_label">Comment</label>               
                     <textarea name="comment" id="comment" class="form_input" cols="30" rows="10" placeholder="Your message"></textarea>
+                    <div class="form_checkbox_area">
                     <input type="checkbox" name="acceptance" class="input_checkbox" id="acceptance" value="true"
                         required><label for="acceptance" class="form_label_checkbox">Agree to Tracken's Policy & Terms
-                        of Use</label>
-                    <input class="form_button" type="button" value="Sign me">
+                        of Use</label></div>
+                    <input class="form_button" type="submit" value="Sign me">
                 </form>
             </div>
             <div class="team">
@@ -72,7 +76,7 @@
             </div>
         </main>
         <footer>
-
+            <div class="copyright">&#x24D2; Copyright  2019 Szymon, Daniel, Wladyslav, Grzegorz</div>
         </footer>
     </div>
 </body>
