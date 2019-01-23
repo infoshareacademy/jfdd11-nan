@@ -22,38 +22,43 @@
                 <div class="header-content-text">
                     <h1 class="header-title">TRACKEN</h1>
                     <p class="header-content-paragraph">We are always on Track with your Package!</p>
-                    <a class="subscribe-link" href="">SUBSCRIBE !</a>
+                    <a class="subscribe-link" href="#form">SUBSCRIBE !</a>
                 </div>
                 <img class="header-icon" src="/img/tracken (1).svg" alt="">
             </div>
         </header>
         <main>
             <div id="list">
+                <h2>Tracken allows you to:</h2>
                 <div class="send">
-                    <img src="img/box.png" alt="" width="100px" height="auto">
+                    <img src="img/box.svg" alt=""title="">
                     <h3>Send package</h3>
                 </div>
                 <div class="track">
-                    <img src="img/track.png" alt="" width="100px">
+                    <img src="img/track.svg" alt="">
                     <h3>Track</h3>
                 </div>
                 <div class="reclamation">
-                    <img src="img/form.png" alt="" width="50px" height="auto">
-                    <h3>Reclamation</h3>
+                    <img src="img/form.svg" alt="">
+                    <h3>Make reclamation</h3>
                 </div>
             </div>
             <div id="form">
                 <p class="form_title">To get a message about premiere time of <strong>Tracken Application</strong>,
                     please fill a form below:</p>
-                <form class="form_subscription">
+                <form class="form_subscription" method="post" action="/">
+                    <label for="name" class="form_label">Name</label>
                     <input type="text" name="name" id="name" class="form_input" placeholder="Your name" required>
+                    <label for="email" class="form_label">Email adress</label>
                     <input type="email" name="email" id="email" class="form_input" placeholder="Your email adress"
                         required>
+                    <label for="comment" class="form_label">Comment</label>               
                     <textarea name="comment" id="comment" class="form_input" cols="30" rows="10" placeholder="Your message"></textarea>
+                    <div class="form_checkbox_area">
                     <input type="checkbox" name="acceptance" class="input_checkbox" id="acceptance" value="true"
                         required><label for="acceptance" class="form_label_checkbox">Agree to Tracken's Policy & Terms
-                        of Use</label>
-                    <input class="form_button" type="button" value="Sign me">
+                        of Use</label></div>
+                    <input class="form_button" type="submit" value="Sign me">
                 </form>
             </div>
             <div class="team">
@@ -80,7 +85,7 @@
             </div>
         </main>
         <footer>
-
+            <div class="copyright">&#x24D2; Copyright  2019 Szymon, Daniel, Wladyslav, Grzegorz</div>
         </footer>
     </div>
 </body>
