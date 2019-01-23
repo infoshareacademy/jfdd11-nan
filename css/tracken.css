@@ -1,11 +1,14 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     font-family: 'Merriweather', serif;
     max-width: 1200px;
     margin: 0 auto;
 }
+
 h1 {
     font-family: 'Archivo Narrow', sans-serif;
 }
+
