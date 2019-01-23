@@ -1,7 +1,7 @@
 #form {
     display: flex;
     flex-direction: column;
-    margin:0 auto;
+    margin:50px 0;
 }
 .form_subscription {
     display: flex;
@@ -33,6 +33,7 @@ input.form_button {
     outline: none;
     padding: 10px;
     margin-bottom: 10px;
+    margin-top: 10px;
     border-radius: 2px;
 }
 input.form_button:hover {
@@ -43,15 +44,21 @@ input.form_button:hover {
 }
 .form_label_checkbox {
     font-size: 12px;
+    margin-left: 10px;
+}
+.form_label_checkbox:hover {
+    cursor: pointer;
 }
 input.input_checkbox {
     border:0px solid #fff;
     background-color: #572172;
-    box-shadow: 1px 1px 4px #572172;
     outline: none;
-
+    text-decoration: none;
 }
 input.input_checkbox:hover {
     cursor: pointer;
-
+}
+.form_label {
+    font-size:13px;
+    margin-bottom:10px;
 }
