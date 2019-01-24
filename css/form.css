@@ -7,9 +7,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto;
     width:500px;
-    
+    margin: 0 auto;
 }
 .form_title {
     align-self: center;
@@ -19,22 +18,26 @@
 input.form_input, textarea.form_input {
     border:1px solid #572172;
     background-color: #fff;
-    box-shadow: 1px 1px 4px #572172;
     outline: none;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 2px;
+    width: 100%;
+}
+input.form_input:focus, textarea.form_input:focus {
+    box-shadow: 1px 1px 4px #572172;
 }
 input.form_button {
     border:0px solid #fff;
     background-color: #572172;
-    box-shadow: 1px 1px 4px #572172;
+    box-shadow: 1px 1px 2px #572172;
     color:#fff;
     outline: none;
     padding: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
     border-radius: 2px;
+    width: 100%;
 }
 input.form_button:hover {
     background-color: #E0C2EF;
@@ -61,4 +64,9 @@ input.input_checkbox:hover {
 .form_label {
     font-size:13px;
     margin-bottom:10px;
+}
+@media screen and (max-width:550px){
+    .form_subscription {
+        width:320px;
+    }
 }
