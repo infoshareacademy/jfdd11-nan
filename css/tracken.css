@@ -27,3 +27,18 @@ footer {
 .container {
     width:100%;
 }
+.navigation {
+    max-height: 80px;
+    width:100%;
+    position: fixed;
+}
+.nav {
+    display: flex;
+    list-style: none;
+}
+.nav > li {
+    margin-right:30px;
+    font-weight: bold;
+    color: var(--verylight);
+    white-space: nowrap;
+}
