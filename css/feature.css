@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: #fff;
     margin: 50px 0px 0px 0px;
 }
 #list>h2 {
@@ -13,7 +12,9 @@
         padding: 20px;
         text-align: center;
     }
-
+#list p {
+    font-style: italic;
+}
 .send>img,.track>img, .reclamation>img  {
     width: 100px;
     height: auto;
