@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    
 }
 
 body {
@@ -9,6 +10,7 @@ body {
     --light: #E0C2EF;
     --verylight: #F7E8FF;
     font-family: 'Merriweather', serif;
+    margin: 0;
 }
 
 h1 {
