@@ -3,6 +3,11 @@
 }
 
 body {
+    --verydark: #2D1D35;
+    --dark: #572172;
+    --medium: #A46EBF;
+    --light: #E0C2EF;
+    --verylight: #F7E8FF;
     font-family: 'Merriweather', serif;
     max-width: 1200px;
     margin: 0 auto;
@@ -11,4 +16,16 @@ body {
 h1 {
     font-family: 'Archivo Narrow', sans-serif;
 }
-
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.copyright {
+    font-size: 12px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
