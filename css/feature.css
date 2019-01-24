@@ -1,8 +1,7 @@
 #list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    background-color: #fff;
+    justify-content: center;
     margin: 50px 0px 0px 0px;
 }
 #list>h2 {
@@ -12,9 +11,16 @@
 #list>div {
         padding: 20px;
         text-align: center;
+        box-shadow: 1px 3px 10px var(--verydark);
+        margin: 10px;
+        flex-basis: 300px
     }
-
-.send>img,.track>img, .reclamation>img  {
+#list p {
+    font-style: italic;
+    text-align: center;
+    text-shadow:  1px 2px 2px var(--light);
+}
+#list img {
     width: 100px;
     height: auto;
 }    
