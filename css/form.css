@@ -7,9 +7,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto;
     width:500px;
-    
+    margin: 0 auto;
 }
 .form_title {
     align-self: center;
@@ -23,6 +22,7 @@ input.form_input, textarea.form_input {
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 2px;
+    width: 100%;
 }
 input.form_input:focus, textarea.form_input:focus {
     box-shadow: 1px 1px 4px #572172;
@@ -37,6 +37,7 @@ input.form_button {
     margin-bottom: 10px;
     margin-top: 10px;
     border-radius: 2px;
+    width: 100%;
 }
 input.form_button:hover {
     background-color: #E0C2EF;
@@ -67,6 +68,5 @@ input.input_checkbox:hover {
 @media screen and (max-width:550px){
     .form_subscription {
         width:320px;
-
     }
 }
