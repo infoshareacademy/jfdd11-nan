@@ -3,16 +3,22 @@
     flex-direction: column;
     justify-content: center;
     margin:50px 0;
-    background: linear-gradient(#FFF,#F7E8FF,#E0C2EF,#F7E8FF,#FFF);
-    background-size: cover;
     min-height: 100vh;
-
+    background: var(--dark);
+    padding: 50px 0;
+}
+.card {
+    width: 50%;
+    margin: 0 auto;
+    padding: 50px 20px;
+    background: white;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
 }
 .form_subscription {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width:500px;
+    width:100%;
     margin: 0 auto;
 }
 .form_title {
@@ -71,8 +77,10 @@ input.input_checkbox:hover {
     font-size:13px;
     margin-bottom:10px;
 }
-@media screen and (max-width:550px){
-    .form_subscription {
-        width:320px;
+@media screen and (max-width:800px){
+    .card {
+        width: 80%;
+        margin: 0 auto;
+        padding: 50px 10px;
     }
 }
