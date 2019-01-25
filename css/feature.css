@@ -1,8 +1,10 @@
 #list {
     display: flex;
     flex-wrap: wrap;
+    max-width: 1200px;
     justify-content: center;
-    margin: 50px 0px 0px 0px;
+    margin: 50px auto 0px auto;
+    
 }
 #list>h2 {
     flex-basis: 100%;
@@ -24,11 +26,13 @@
     width: 100px;
     height: auto;
 }    
-@media (max-width: 600px) {
+@media (max-width: 660px) {
 
     #list {
         flex-direction: column;
     }
-    
+    #list>div {
+        flex-basis: 100px
+    }
 
     }
