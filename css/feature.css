@@ -3,7 +3,9 @@
     flex-wrap: wrap;
     max-width: 1200px;
     justify-content: center;
-    margin: 50px auto 0px auto;
+    margin: 50px auto auto auto;
+    min-height: 100vh;
+    align-items: center;
     
 }
 #list>h2 {
@@ -15,7 +17,8 @@
         text-align: center;
         box-shadow: 1px 3px 10px var(--verydark);
         margin: 10px;
-        flex-basis: 300px
+        flex-basis: 300px;
+        max-height: 235px;
     }
 #list p {
     font-style: italic;
