@@ -1,7 +1,12 @@
 #form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin:50px 0;
+    background: linear-gradient(#FFF,#F7E8FF,#E0C2EF,#F7E8FF,#FFF);
+    background-size: cover;
+    min-height: 100vh;
+
 }
 .form_subscription {
     display: flex;
@@ -23,9 +28,10 @@ input.form_input, textarea.form_input {
     margin-bottom: 10px;
     border-radius: 2px;
     width: 100%;
+    box-shadow: 1px 1px 4px #572172;
 }
 input.form_input:focus, textarea.form_input:focus {
-    box-shadow: 1px 1px 4px #572172;
+    box-shadow: inset 1px 1px 4px #572172;
 }
 input.form_button {
     border:0px solid #fff;
@@ -41,7 +47,7 @@ input.form_button {
 }
 input.form_button:hover {
     background-color: #E0C2EF;
-    box-shadow: 1px 1px -2px #572172;
+    box-shadow: inset 1px 1px 4px #572172;
     color:#000;
     cursor: pointer;
 }
