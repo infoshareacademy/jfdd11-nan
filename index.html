@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +15,15 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id="home">
         <header>
             <nav class="navigation">
+                <div class="menu_smart">Menu</div>
                 <ul class="nav">
-                    <li>Home</li>
-                    <li>About funcionality</li>
-                    <li>Contact form</li>
-                    <li>Developers</li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#list">About funcionality</a></li>
+                    <li><a href="#form">Contact form</a></li>
+                    <li><a href="#team">Developers</a></li>
                 </ul>
             </nav>
             <div class="header-content">
@@ -70,25 +70,29 @@
                 </div>
             </div>
             <div id="form">
-                <p class="form_title">To get a message about premiere time of <strong>Tracken Application</strong>,
-                    please fill a form below:</p>
-                <form class="form_subscription" method="post" action="/">
-                    <label for="name" class="form_label">Name</label>
-                    <input type="text" name="name" id="name" class="form_input" placeholder="Your name" required>
-                    <label for="email" class="form_label">Email adress</label>
-                    <input type="email" name="email" id="email" class="form_input" placeholder="Your email adress"
-                        required>
-                    <label for="comment" class="form_label">Comment</label>
-                    <textarea name="comment" id="comment" class="form_input" cols="30" rows="10" placeholder="Your message"></textarea>
-                    <div class="form_checkbox_area">
-                        <input type="checkbox" name="acceptance" class="input_checkbox" id="acceptance" value="true"
-                            required><label for="acceptance" class="form_label_checkbox">Agree to Tracken's Policy &
-                            Terms
-                            of Use</label></div>
-                    <input class="form_button" type="submit" value="Sign me">
-                </form>
+                <div class="card">
+                    <p class="form_title">To get a message about premiere time of <strong>Tracken Application</strong>,
+                        please fill a form below:</p>
+                    <form class="form_subscription" method="post" action="/">
+                        <label for="name" class="form_label">Name</label>
+                        <input type="text" name="name" id="name" class="form_input" placeholder="Your name" required>
+                        <label for="email" class="form_label">Email adress</label>
+                        <input type="email" name="email" id="email" class="form_input" placeholder="Your email adress"
+                            required>
+                        <label for="comment" class="form_label">Comment</label>
+                        <textarea name="comment" id="comment" class="form_input" cols="30" rows="10" placeholder="Your message"></textarea>
+                        <div class="form_checkbox_area">
+                            <input type="checkbox" name="acceptance" class="input_checkbox" id="acceptance" value="true"
+                                required><label for="acceptance" class="form_label_checkbox">Agree to Tracken's Policy
+                                &
+                                Terms
+                                of Use</label></div>
+                        <input class="form_button" type="submit" value="Sign me">
+                    </form>
+                </div>
+
             </div>
-            <div class="team">
+            <div class="team" id="team">
                 <div class="team_person">
                     <a class="team_link" href="https://ganushkevychv.github.io/">
                         <img class="team_photo" src="img/Vlad.png">
@@ -120,4 +124,5 @@
         </footer>
     </div>
 </body>
+
 </html>
