@@ -35,7 +35,8 @@
         flex-direction: column;
     }
     #list>div {
-        flex-basis: 100px
+        flex-basis: 100px;
+        width: 300px;
     }
 
     }

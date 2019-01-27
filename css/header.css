@@ -199,7 +199,6 @@ header {
 @media (max-width:620px) {
     header {
         display: flex;
-        flex-direction: column;
     }
     .header-icon {
         margin: 0 auto;
