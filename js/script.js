@@ -16,3 +16,16 @@ selection.addEventListener('click', function () {
             menu.classList.toggle('open');
         });
     }
+window.onscroll = function() {changeColor()};
+
+let navbar = document.querySelector(".overlay-menu");
+let getPosition = navbar.offsetTop;
+    
+ // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function changeColor() {
+      if (window.pageYOffset > getPosition) {
+        navbar.classList.add("stick");
+      } else {
+        navbar.classList.remove("stick");
+      }
+}

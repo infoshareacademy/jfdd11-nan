@@ -5,7 +5,6 @@
     border-radius: 150px;
     display: block;
 }
-
 .created {
     text-align: center;
 }
@@ -15,11 +14,12 @@
     text-decoration: none;
     color: black;
 }
-
 .team_link:hover {
     color: var(--medium);
 }
-
+#team {
+    padding: 80px 0;
+}
 .team {
     display: flex;
     padding: 20px;
@@ -28,18 +28,15 @@
     max-width: 1200px;
     margin: 50px auto 0px auto;
 }
-
 .team_person {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 25%;
 }
-
 .team_name {
     text-align: center;
 }
-
 @media screen and (max-width:700px) {
     .team {
         display: flex;
