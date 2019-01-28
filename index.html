@@ -18,15 +18,21 @@
 <body>
     <div class="container" id="home">
         <header>
-            <nav class="navigation">
-                <div class="menu_smart">Menu</div>
-                <ul class="nav">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#list">About funcionality</a></li>
-                    <li><a href="#form">Contact form</a></li>
-                    <li><a href="#team">Developers</a></li>
-                </ul>
-            </nav>
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+            <div class="overlay" id="overlay">
+                <nav class="overlay-menu">
+                    <ul class="nav">
+                        <li><a class="links" href="#home">Home</a></li>
+                        <li><a class="links" href="#list">About funcionality</a></li>
+                        <li><a class="links" href="#form">Contact form</a></li>
+                        <li><a class="links" href="#team">Developers</a></li>
+                    </ul>
+                </nav>
+            </div>
             <div class="header-content">
                 <div class="header-content-text">
                     <h1 class="header-title">TRACKEN</h1>
@@ -39,32 +45,32 @@
         <main>
             <div id="list">
                 <h2>Tracken allows you to:</h2>
-                <div class="send">
+                <div class="box">
                     <img src="img/box.svg" alt="" title="">
                     <h3>Send package</h3>
                     <p>Order a courier to your location</p>
                 </div>
-                <div class="track">
+                <div class="box">
                     <img src="img/track.svg" alt="">
                     <h3>Track</h3>
                     <p>Find package status and location</p>
                 </div>
-                <div class="reclamation">
+                <div class="box">
                     <img src="img/form.svg" alt="">
                     <h3>Make reclamation</h3>
                     <p>Report lost or damaged package</p>
                 </div>
-                <div class="rate">
+                <div class="box">
                     <img src="img/like.svg" alt="" title="">
                     <h3>Rate a courier</h3>
                     <p>Review a courier, add to favorites, black list</p>
                 </div>
-                <div class="Getback">
+                <div class="box">
                     <img src="img/first.svg" alt="">
                     <h3>Getback</h3>
                     <p>Loyality program with bonuses</p>
                 </div>
-                <div class="Become a courier">
+                <div class="box">
                     <img src="img/delivery.svg" alt="">
                     <h3>Become a courier</h3>
                     <p>Deliver parcel</p>
@@ -72,51 +78,56 @@
             </div>
             <div id="form">
                 <div class="card">
-                    <p class="form_title">To get a message about premiere time of <strong>Tracken Application</strong>, please fill a form below:</p>
+                    <h2 class="form_heafer">Subsription form</h2>
+                    <p class="form_title">To get a message about premiere time of <strong>Tracken Application</strong>,
+                        please fill a form below:</p>
                     <form class="form_subscription" method="post" action="/">
                         <label for="name" class="form_label">Name</label>
                         <input type="text" name="name" id="name" class="form_input" placeholder="Your name" required>
                         <label for="email" class="form_label">Email adress</label>
-                        <input type="email" name="email" id="email" class="form_input" placeholder="Your email adress" required>
+                        <input type="email" name="email" id="email" class="form_input" placeholder="Your email adress"
+                            required>
                         <label for="comment" class="form_label">Comment</label>
                         <textarea name="comment" id="comment" class="form_input" cols="30" rows="10" placeholder="Your message"></textarea>
                         <div class="form_checkbox_area">
-                            <input type="checkbox" name="acceptance" class="input_checkbox" id="acceptance" value="true" required><label for="acceptance" class="form_label_checkbox">Agree to Tracken's Policy
+                            <input type="checkbox" name="acceptance" class="input_checkbox" id="acceptance" value="true"
+                                required><label for="acceptance" class="form_label_checkbox">Agree to Tracken's Policy
                                 &
                                 Terms
                                 of Use</label></div>
                         <input class="form_button" type="submit" value="Sign me">
                     </form>
                 </div>
-
             </div>
-            <div class="created">
-                <h3>Created and supported by:</h3>
-            </div>
-            <div class="team" id="team">
-                <div class="team_person">
-                    <a class="team_link" href="https://ganushkevychv.github.io/">
-                        <img class="team_photo" src="img/Vlad.png">
-                        <p class="team_name">Vladyslav</p>
-                    </a>
+            <div id="team">
+                <div class="created">
+                    <h3>Created and supported by:</h3>
                 </div>
-                <div class="team_person">
-                    <a class="team_link" href="https://domaradzki.github.io">
-                        <img class="team_photo" src="img/Grzegorz.png">
-                        <p class="team_name">Grzegorz</p>
-                    </a>
-                </div>
-                <div class="team_person">
-                    <a class="team_link" href="https://SzBor.github.io#szborgithubio">
-                        <img class="team_photo" src="img/Szymon.png">
-                        <p class="team_name">Szymon</p>
-                    </a>
-                </div>
-                <div class="team_person">
-                    <a class="team_link" href="https://daniel-mikula.github.io">
-                        <img class="team_photo" src="img/Daniel.png">
-                        <p class="team_name">Daniel</p>
-                    </a>
+                <div class="team">
+                    <div class="team_person">
+                        <a class="team_link" href="https://ganushkevychv.github.io/">
+                            <img class="team_photo" src="img/Vlad.png">
+                            <p class="team_name">Vladyslav</p>
+                        </a>
+                    </div>
+                    <div class="team_person">
+                        <a class="team_link" href="https://domaradzki.github.io">
+                            <img class="team_photo" src="img/Grzegorz.png">
+                            <p class="team_name">Grzegorz</p>
+                        </a>
+                    </div>
+                    <div class="team_person">
+                        <a class="team_link" href="https://SzBor.github.io#szborgithubio">
+                            <img class="team_photo" src="img/Szymon.png">
+                            <p class="team_name">Szymon</p>
+                        </a>
+                    </div>
+                    <div class="team_person">
+                        <a class="team_link" href="https://daniel-mikula.github.io">
+                            <img class="team_photo" src="img/Daniel.png">
+                            <p class="team_name">Daniel</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </main>
@@ -124,6 +135,7 @@
             <div class="copyright">&#x24D2; Copyright 2019 Szymon, Daniel, Wladyslav, Grzegorz</div>
         </footer>
     </div>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
