@@ -18,12 +18,10 @@ header {
     justify-content: center;
     padding-top: 100px;
 }
-
 .header-content-text {
     display: flex;
     flex-direction: column;
 }
-
 .header-title {
     font-family: 'Coiny', cursive;
     font-size: 200px;
@@ -31,13 +29,11 @@ header {
     color: var(--dark);
     text-align: left;
 }
-
 .header-content-paragraph {
     font-size: 30px;
     text-align: center;
     font-family: 'Coiny', cursive;
 }
-
 .subscribe-link {
     text-align: center;
     text-decoration: none;
@@ -48,7 +44,6 @@ header {
 }
 
 /* FUNNY SUB BUTTON*/
-
 .subscribe-link:before {
     content: '';
     border-bottom: solid 3px var(--medium);
@@ -68,7 +63,6 @@ header {
     -webkit-animation: heartbeat-x 1.7s infinite ease-in;
     animation: heartbeat-x 1.7s infinite ease-in;
 }
-
 .subscribe-link:hover {
     -webkit-animation: heartbeat 1.7s infinite ease-in;
     animation: heartbeat 1.7s infinite ease-in;
@@ -198,7 +192,6 @@ header {
 @media (max-width:620px) {
     header {
         display: flex;
-        flex-direction: column;
     }
     .header-icon {
         margin: 0 auto;
