@@ -8,7 +8,7 @@ header {
     min-height: 100vh;
 }
 
-.header-icon{
+.header-icon {
     width: 400px;
     padding-bottom: 300px;
 }
@@ -142,6 +142,7 @@ header {
 }
 
 /*MEDIA QUERIES*/
+
 @media (max-width:1400px) {
     header {
         display: flex;
@@ -158,10 +159,10 @@ header {
     .header-content-paragraph {
         font-size: 20px;
     }
-    .subscribe-link{
+    .subscribe-link {
         font-size: 30px;
     }
-    .header-content{
+    .header-content {
         padding-top: 190px;
     }
 }
@@ -183,7 +184,7 @@ header {
     .header-content-paragraph {
         font-size: 20px;
     }
-    .header-content{
+    .header-content {
         padding-top: 220px;
     }
 }
@@ -202,30 +203,30 @@ header {
         font-size: 20px;
     }
 }
-    @media (max-width:500px) {
 
-        header{
-            min-height: 80vh;
-        }
-        .header-content {
-            display: flex;
-            flex-direction: column-reverse;
-            padding-top: 0px;
-        }
-        .header-icon {
-            margin: 0 auto;
-            width: 200px;
-            padding:0;
-        }
-        .header-title {
-            font-size: 60px;
-            text-align: center;
-            margin: 0 auto;
-        }
-        .header-content-paragraph {
-            font-size: 20px;
-        }
-        .subscribe-link {
-            font-size: 19px;
-        }
+@media (max-width:500px) {
+    header {
+        min-height: 80vh;
     }
+    .header-content {
+        display: flex;
+        flex-direction: column-reverse;
+        padding-top: 0px;
+    }
+    .header-icon {
+        margin: 0 auto;
+        width: 200px;
+        padding: 0;
+    }
+    .header-title {
+        font-size: 60px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .header-content-paragraph {
+        font-size: 20px;
+    }
+    .subscribe-link {
+        font-size: 19px;
+    }
+}
