@@ -4,15 +4,7 @@
     border:1px solid var(--medium);
     border-radius: 150px;
     display: block;
-    animation: glow 1s infinite alternate;
-}
-@keyframes glow {
-    from {
-      box-shadow: 0 0 10px -10px #572172;
-    }
-    to {
-      box-shadow: 0 0 10px 10px #572172;
-    }
+
   }
 .team_link {
     text-align: center;
@@ -27,6 +19,8 @@
     padding: 20px;
     justify-content: center;
     flex-direction: row;
+    max-width: 1200px;
+    margin: 50px auto 0px auto;
 }
 .team_person {
     display: flex;
