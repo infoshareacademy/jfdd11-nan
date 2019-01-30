@@ -2,4 +2,5 @@
 const board = document.querySelector("#board");
 makeBoard(board, 10);
 
+addingHouses(6);
 addingTruck();
