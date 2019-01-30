@@ -15,3 +15,11 @@
     transition: background-color 0.5s;
     background: rgb(24, 117, 55);
   }
+
+  .truck {
+    background-image: url(../truck-icon.png);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(0deg);
+  }
