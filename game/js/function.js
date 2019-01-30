@@ -37,9 +37,6 @@ function addingHouses(x) {
   }
 }
 
-
-
-
 function addingTruck() {
   let truckBase = document.querySelector('.cell');
   truckBase.classList.add('truck');
