@@ -8,17 +8,14 @@ function makeBoard(target, size) {
         target.appendChild(rowNode);
     }
 }
-
 function createNode(className) {
     const node = document.createElement("div");
     node.classList.add(className);
     return node;
 }
-
 function getIndexWithinParent(element) {
     return Array.from(element.parentNode.children).indexOf(element);
 }
-
 function getNextRow(element) {
     return element.parentElement.nextElementSibling
 }
