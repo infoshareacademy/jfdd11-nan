@@ -44,3 +44,6 @@ if (event.code === 'ArrowDown') {
     targetNode.classList.add('truck');
 }
 })*/
+
+addingHouses(6);
+addingTruck();
