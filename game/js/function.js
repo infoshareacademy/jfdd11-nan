@@ -26,3 +26,8 @@ function makeBoard(target, size) {
   function getNextRow(element) {
     return element.parentElement.nextElementSibling
   }
+
+  function addingTruck(){
+    let truckBase = document.querySelector('.cell');
+    truckBase.classList.add('truck');
+  }
