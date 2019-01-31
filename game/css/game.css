@@ -1,9 +1,9 @@
 .game {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 .new_package {
     content:url('../img/package.png');
     float:right;
@@ -11,6 +11,7 @@
   }
 .row {
   display: flex;
+  
 }
 .cell {
   width: 5vw;
