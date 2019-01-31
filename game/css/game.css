@@ -32,3 +32,13 @@
   background-position: center;
   transform: rotate(0deg);
 }
+#start{
+   border-radius: 32px; 
+font-size: 50px; 
+   display: flex; 
+justify-content: center; 
+   align-items: center; 
+   align-self: center; 
+ 
+}
+
