@@ -1,35 +1,17 @@
 .game {
-<<<<<<< HEAD
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
   }
-  .row {
-    display: flex;
+.new_package {
+    content:url('../img/package.png');
+    float:right;
+    width:40px;
   }
-  .cell {
-    width: 5vw;
-    height: 5vw;
-    border: 1px solid rgb(211, 211, 211);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.5s;
-    background: rgb(24, 117, 55);
-  }
-  .truck{
-    background-color: red;
-  }
-=======
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
 .row {
   display: flex;
 }
-
 .cell {
   width: 5vw;
   height: 5vw;
@@ -38,13 +20,10 @@
   transition: background-color 0.5s;
   background: rgb(24, 117, 55);
 }
-
 .house {
   background-size: cover;
   background-image: url(../img/icons8-home-page-48.png);
 }
-
-
 .truck {
   background-image: url(../truck-icon.png);
   background-size: 40%;
@@ -52,4 +31,3 @@
   background-position: center;
   transform: rotate(0deg);
 }
->>>>>>> 176128ab2ced3bb4166ee7bca4864850607d4697
