@@ -4,12 +4,15 @@
   align-items: center;
   min-height: 100vh;
 }
-
+.new_package {
+    content:url('../img/package.png');
+    float:right;
+    width:40px;
+  }
 .row {
   display: flex;
   
 }
-
 .cell {
   width: 5vw;
   height: 5vw;
@@ -18,13 +21,10 @@
   transition: background-color 0.5s;
   background: rgb(24, 117, 55);
 }
-
 .house {
   background-size: cover;
   background-image: url(../img/icons8-home-page-48.png);
 }
-
-
 .truck {
   background-image: url(../truck-icon.png);
   background-size: 40%;

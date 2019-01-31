@@ -1,6 +1,9 @@
 "use strict";
 const board = document.querySelector("#board");
 makeBoard(board, 10);
+addingHouses(6);
+addingTruck();
+courierCall();
 //truck move function
 
 const truckMove = document.querySelector('.cell');
@@ -53,5 +56,4 @@ window.addEventListener('keyup', function (event) {
 
 
 
-addingHouses(6);
-addingTruck();
+
