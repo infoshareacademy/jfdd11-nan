@@ -37,23 +37,14 @@ function addingHouses(x) {
   }
 }
 
-
-
-
-function addingTruck() {
-  let truckBase = document.querySelector('.cell');
-  truckBase.classList.add('truck');
-}
 function courierCall() {
   const houses = document.querySelectorAll('.house');
-  let randomPackage = Math.floor(Math.random() * houses.length - 1);
-  if (houses[randomPackage].children === undefined || houses[randomPackage].children.length > 0) {
-      randomPackage = Math.floor(Math.random() * houses.length - 1);
+  let randomPackage = Math.floor(Math.random() * houses.length);
+  if (houses[randomPackage].children.length > 0) {
+      randomPackage = Math.floor(Math.random() * houses.length);
   } else {
        const pack = document.createElement('div');
        pack.classList.add('new_package');
-       console.log(houses);
-       console.log(houses[randomPackage]);
        houses[randomPackage].appendChild(pack);
   }
 }
