@@ -48,12 +48,21 @@
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
+  
 }
 #start:hover {
-  background-color: orangered
+  background-color: orangered;
 }
 #start:active {
   background-color:orangered;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+#score{
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+  background-color: orangered;
+  border-radius: 15px;
+  color: #fff;
 }
