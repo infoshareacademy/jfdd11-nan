@@ -96,7 +96,8 @@ footer {
     }
     .stick {
         box-shadow: none;
-        background-color: var(--medium)
+        background-color: var(--medium);
+        display: initial;
     }
     nav>ul {
         flex-direction: column;
