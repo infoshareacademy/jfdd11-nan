@@ -68,6 +68,7 @@ footer {
 .nav {
     display: flex;
     list-style: none;
+    
 }
 
 .nav>li {
@@ -102,6 +103,7 @@ footer {
     }
     nav>ul {
         flex-direction: column;
+        
     }
     nav>ul>li {
         text-align: center;
@@ -205,15 +207,16 @@ footer {
     ul {
         list-style: none;
         padding: 0;
-        margin: 0 auto;
+        margin: 0;
         display: inline-block;
         position: relative;
         height: 75%;
+        margin-top: 40px;
     }
     ul>li {
         display: block;
-        height: 25%;
-        height: calc(100% / 4);
+        height: 20%;
+        /* height: calc(100% / 4); */
         min-height: 50px;
         position: relative;
         opacity: 0;
