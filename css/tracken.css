@@ -50,7 +50,7 @@ footer {
     width: 100%;
     position: fixed;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -61,7 +61,7 @@ footer {
     width: 100%;
     position: fixed;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -74,6 +74,7 @@ footer {
     margin-right: 30px;
     font-weight: bold;
     white-space: nowrap;
+   
 }
 
 .nav>li>a {
@@ -106,6 +107,11 @@ footer {
         text-align: center;
         width: 100%;
     }
+
+     ul>li>a {
+        font-size: 30px;
+    }
+
     nav {
         width: 100%;
         position: fixed;
