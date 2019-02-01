@@ -26,11 +26,11 @@
 
 .house {
   background-size: cover;
-  background-image: url(../img/icons8-home-page-48.png);
+  background-image: url(../img/house.png);
 }
 
 .truck {
-  background-image: url(../truck-icon.png);
+  background-image: url(../img/truck-icon.png);
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
