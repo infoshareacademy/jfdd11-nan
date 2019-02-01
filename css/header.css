@@ -207,7 +207,7 @@ header {
     }
 }
 
-@media (max-width:500px) {
+@media (max-width:530px) {
     header {
         min-height: 80vh;
     }
