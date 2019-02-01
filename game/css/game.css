@@ -4,15 +4,17 @@
   align-items: center;
   min-height: 100vh;
 }
+
 .new_package {
-    content:url('../img/package.png');
-    float:right;
-    width:40px;
-  }
+  content: url('../img/package.png');
+  float: right;
+  width: 40px;
+}
+
 .row {
   display: flex;
-  
 }
+
 .cell {
   width: 5vw;
   height: 5vw;
@@ -21,14 +23,37 @@
   transition: background-color 0.5s;
   background: rgb(24, 117, 55);
 }
+
 .house {
   background-size: cover;
   background-image: url(../img/house.png);
 }
+
 .truck {
   background-image: url(../img/truck-icon.png);
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
   transform: rotate(0deg);
+}
+
+#start {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: orangered;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+#start:hover {
+  background-color: orangered
+}
+#start:active {
+  background-color:orangered;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }

@@ -52,6 +52,10 @@ window.addEventListener('keyup', function (event) {
     targetNode.classList.add('truck');
   }
 })
+//play button
+function refreshPage(){
+  window.location.reload();
+}
 
 
 
