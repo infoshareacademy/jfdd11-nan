@@ -81,6 +81,10 @@ window.addEventListener('keyup', function (event) {
     truckMove(targetNode,event.code);
   }
 })
+//play button
+function refreshPage(){
+  window.location.reload();
+}
 
 
 
