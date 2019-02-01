@@ -37,7 +37,27 @@ function addingHouses(x) {
   }
 }
 
-function addingTruck() {
-  let truckBase = document.querySelector('.cell');
-  truckBase.classList.add('truck');
+function courierCall() {
+  const houses = document.querySelectorAll('.house');
+  let randomPackage = Math.floor(Math.random() * houses.length);
+  if (houses[randomPackage].children.length > 0) {
+      randomPackage = Math.floor(Math.random() * houses.length);
+  } else {
+       const pack = document.createElement('div');
+       pack.classList.add('new_package');
+       houses[randomPackage].appendChild(pack);
+  }
 }
+
+
+let timeLeft=60;
+let countDown = setInterval(function(){
+  timeLeft-=1;
+  document.getElementById('countdown').textContent=timeLeft + ' seconds left';
+  console.log(timeLeft);
+  if (timeLeft<=0){
+    document.getElementById('countdown').textContent=' Time is up!';
+    clearInterval(countDown)
+  }
+},100)
+
