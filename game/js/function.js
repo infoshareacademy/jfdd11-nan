@@ -84,7 +84,7 @@ let countDown = setInterval(function () {
 //end game function
 function winOrGameOver (){
   if (score === 0){
-    swal("Ups!", "Try again!");
+    swal("Oops!", "Try again!");
   }else {
     swal("Good job!", "You made it!", "success");
   }
