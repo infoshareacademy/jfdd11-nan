@@ -7,9 +7,8 @@
 
 .new_package {
   content: url('../img/purse.png');
-  float: right;
-  width: 40%;
-  text-align: center;
+  height: 50%;
+
 }
 
 .row {
@@ -37,6 +36,9 @@
   transform: rotate(90deg);
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #start {

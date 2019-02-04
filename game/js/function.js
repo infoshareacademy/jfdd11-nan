@@ -65,6 +65,13 @@ function courierCall() {
   }
 }
 
+function packagePickUp() {
+  const package = document.querySelector('.new_package');
+  const isTruck = document.querySelector('.truck');
+  if (package === isTruck.previousElementSibling){
+    isTruck.appendChild(package);
+  }
+}
 function deliveryPoint() {
 
 }
@@ -76,8 +83,8 @@ let countDown = setInterval(function () {
   document.getElementById('countdown').textContent = timeLeft + ' seconds left';
   if (timeLeft <= 0) {
     document.getElementById('countdown').textContent = ' Time is up!';
-    clearInterval(countDown)
-    winOrGameOver()
+    clearInterval(countDown);
+    winOrGameOver();
   }
 },100)
 //end game function
