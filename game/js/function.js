@@ -1,4 +1,3 @@
-var score = 0;
 function makeBoard(target, size) {
   for (let y = 0; y < size; y += 1) {
     let rowNode = createNode("row");
@@ -72,6 +71,19 @@ function packagePickUp() {
     isTruck.appendChild(package);
   }
 }
+
+function deliveryPackage() {
+  const isTruck = document.querySelector('.truck');
+  const package = document.querySelector('.new_package');
+  const deliveryHouse = document.querySelector('.house');
+  if (isTruck.parentElement === deliveryHouse){
+    game.packages+=1;
+    document.querySelector('#points').textContent = game.packages;
+    package.remove();
+    courierCall();
+  }
+}
+
 function deliveryPoint() {
 
 }
@@ -89,10 +101,12 @@ let countDown = setInterval(function () {
 },100)
 //end game function
 function winOrGameOver (){
+  let score = game.packages;
+  let text = "Your score is : " + score;
   if (score === 0){
     swal("Oops!", "Try again!");
   }else {
-    swal("Good job!", "You made it!", "success");
+    swal("Good job!", text, "success");
   }
 }
 
