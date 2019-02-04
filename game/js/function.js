@@ -29,13 +29,13 @@ function getNextRow(element) {
 }
 
 function addingHouses(x) {
-  const arr = Array.from(document.querySelectorAll('.cell'))
+  const arrHouse = Array.from(document.querySelectorAll('.cell'))
     .filter((item, index) => index > 0);
   for (let i = 0; i < x; i++) {
-    let randomPackageIndex = Math.floor(Math.random() * arr.length);
-    arr[randomPackageIndex].classList.add('house');
+    let randomPackageIndex = Math.floor(Math.random() * arrHouse.length);
+    arrHouse[randomPackageIndex].classList.add('house');
 
-    arr.splice(randomPackageIndex, 1);
+    arrHouse.splice(randomPackageIndex, 1);
   }
 }
 
@@ -82,11 +82,10 @@ let timeLeft = 60;
 let countDown = setInterval(function () {
   timeLeft -= 1;
   document.getElementById('countdown').textContent = timeLeft + ' seconds left';
-  console.log(timeLeft);
   if (timeLeft <= 0) {
     document.getElementById('countdown').textContent = ' Time is up!';
-    clearInterval(countDown)
-    winOrGameOver()
+    clearInterval(countDown);
+    winOrGameOver();
   }
 },100)
 
