@@ -1,3 +1,4 @@
+var score = 0;
 function makeBoard(target, size) {
   for (let y = 0; y < size; y += 1) {
     let rowNode = createNode("row");
@@ -77,6 +78,15 @@ let countDown = setInterval(function () {
   if (timeLeft <= 0) {
     document.getElementById('countdown').textContent = ' Time is up!';
     clearInterval(countDown)
+    winOrGameOver()
   }
-}, 100)
+},100)
+//end game function
+function winOrGameOver (){
+  if (score === 0){
+    swal("Ups!", "Try again!");
+  }else {
+    swal("Good job!", "You made it!", "success");
+  }
+}
 
