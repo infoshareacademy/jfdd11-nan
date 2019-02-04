@@ -20,9 +20,8 @@
   width: 5vw;
   height: 5vw;
   border: 1px solid rgb(211, 211, 211);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 6px rgba(206, 58, 58, 0.5);
   transition: background-color 0.5s;
-  background: rgb(24, 117, 55);
 }
 
 .house {
@@ -31,11 +30,11 @@
 }
 
 .truck {
-  background-image: url(../img/truck-icon.png);
-  background-size: 40%;
+  background-image: url(../img/pickup-truck.png);
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  transform: rotate(0deg);
+  transform: rotate(90deg);
   width: 100%;
   height: 100%;
 }
@@ -71,4 +70,8 @@
   background-color: orangered;
   border-radius: 15px;
   color: #fff;
+}
+
+#board {
+  background-image: linear-gradient(to bottom right, rgb(0, 167, 0), rgb(30, 105, 0));
 }
