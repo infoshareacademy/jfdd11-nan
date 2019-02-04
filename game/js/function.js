@@ -65,6 +65,13 @@ function courierCall() {
   }
 }
 
+function packagePickUp() {
+  const package = document.querySelector('.new_package');
+  const isTruck = document.querySelector('.truck');
+  if (package === isTruck.previousElementSibling){
+    isTruck.appendChild(package);
+  }
+
 function deliveryPoint() {
 
 }
@@ -89,4 +96,4 @@ function winOrGameOver (){
     swal("Good job!", "You made it!", "success");
   }
 }
-
+}
