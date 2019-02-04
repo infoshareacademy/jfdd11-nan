@@ -215,6 +215,7 @@ header {
         display: flex;
         flex-direction: column-reverse;
         padding-top: 0px;
+        padding: 0;
     }
     .header-icon {
         margin: 0 auto;
