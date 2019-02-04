@@ -77,3 +77,20 @@
   border-radius: 15px;
   color: #fff;
 }
+
+.tree {
+  background-size: cover;
+  background-image: url(../img/tree.png);
+}
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color:orangered;
+  font-size: 12px;
+  border: 1px solid green;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+.swal-text{
+  font-size: 50px;
+}

@@ -1,3 +1,4 @@
+var score = 0;
 function makeBoard(target, size) {
   for (let y = 0; y < size; y += 1) {
     let rowNode = createNode("row");
@@ -33,19 +34,34 @@ function addingHouses(x) {
   for (let i = 0; i < x; i++) {
     let randomPackageIndex = Math.floor(Math.random() * arr.length);
     arr[randomPackageIndex].classList.add('house');
+
     arr.splice(randomPackageIndex, 1);
   }
+}
+
+function addingTrees(x) {
+  const arrTree = Array.from(document.querySelectorAll('.cell:not(.house)'))
+    .filter((item, index) => index > 0);
+            
+  for (let i = 0; i < x; i++) {
+    let randomPackageIndex = Math.floor(Math.random() * arrTree.length);
+    arrTree[randomPackageIndex].classList.add('tree');
+
+    arrTree.splice(randomPackageIndex, 1);
+  
+  }
+  
 }
 
 function courierCall() {
   const houses = document.querySelectorAll('.house');
   let randomPackage = Math.floor(Math.random() * houses.length);
   if (houses[randomPackage].children.length > 0) {
-      randomPackage = Math.floor(Math.random() * houses.length);
+    randomPackage = Math.floor(Math.random() * houses.length);
   } else {
-       const pack = document.createElement('div');
-       pack.classList.add('new_package');
-       houses[randomPackage].appendChild(pack);
+    const pack = document.createElement('div');
+    pack.classList.add('new_package');
+    houses[randomPackage].appendChild(pack);
   }
 }
 
@@ -56,17 +72,28 @@ function packagePickUp() {
     isTruck.appendChild(package);
   }
 
+function deliveryPoint() {
 
 }
 
 
-let timeLeft=60;
-let countDown = setInterval(function(){
-  timeLeft-=1;
-  document.getElementById('countdown').textContent=timeLeft + ' seconds left';
-  if (timeLeft<=0){
-    document.getElementById('countdown').textContent=' Time is up!';
+let timeLeft = 60;
+let countDown = setInterval(function () {
+  timeLeft -= 1;
+  document.getElementById('countdown').textContent = timeLeft + ' seconds left';
+  console.log(timeLeft);
+  if (timeLeft <= 0) {
+    document.getElementById('countdown').textContent = ' Time is up!';
     clearInterval(countDown)
+    winOrGameOver()
   }
 },100)
-
+//end game function
+function winOrGameOver (){
+  if (score === 0){
+    swal("Oops!", "Try again!");
+  }else {
+    swal("Good job!", "You made it!", "success");
+  }
+}
+}
