@@ -71,7 +71,7 @@ function packagePickUp() {
   if (package === isTruck.previousElementSibling){
     isTruck.appendChild(package);
   }
-
+}
 function deliveryPoint() {
 
 }
@@ -81,11 +81,10 @@ let timeLeft = 60;
 let countDown = setInterval(function () {
   timeLeft -= 1;
   document.getElementById('countdown').textContent = timeLeft + ' seconds left';
-  console.log(timeLeft);
   if (timeLeft <= 0) {
     document.getElementById('countdown').textContent = ' Time is up!';
-    clearInterval(countDown)
-    winOrGameOver()
+    clearInterval(countDown);
+    winOrGameOver();
   }
 },100)
 //end game function
@@ -96,4 +95,4 @@ function winOrGameOver (){
     swal("Good job!", "You made it!", "success");
   }
 }
-}
+
