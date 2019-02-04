@@ -49,12 +49,21 @@ function courierCall() {
   }
 }
 
+function packagePickUp() {
+  const package = document.querySelector('.new_package');
+  const isTruck = document.querySelector('.truck');
+  if (package === isTruck.previousElementSibling){
+    isTruck.appendChild(package);
+  }
+
+
+}
+
 
 let timeLeft=60;
 let countDown = setInterval(function(){
   timeLeft-=1;
   document.getElementById('countdown').textContent=timeLeft + ' seconds left';
-  console.log(timeLeft);
   if (timeLeft<=0){
     document.getElementById('countdown').textContent=' Time is up!';
     clearInterval(countDown)
