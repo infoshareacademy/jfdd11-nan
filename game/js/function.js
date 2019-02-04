@@ -58,6 +58,7 @@ let countDown = setInterval(function(){
   if (timeLeft<=0){
     document.getElementById('countdown').textContent=' Time is up!';
     clearInterval(countDown)
+    swal("Good job!", "You clicked the button!", "success");
   }
 },100)
 
