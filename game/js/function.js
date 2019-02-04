@@ -71,6 +71,7 @@ function packagePickUp() {
   if (package === isTruck.previousElementSibling){
     isTruck.appendChild(package);
   }
+}
 
 function deliveryPoint() {
 
@@ -88,6 +89,8 @@ let countDown = setInterval(function () {
     winOrGameOver()
   }
 },100)
+
+
 //end game function
 function winOrGameOver (){
   if (score === 0){
@@ -95,5 +98,4 @@ function winOrGameOver (){
   }else {
     swal("Good job!", "You made it!", "success");
   }
-}
 }
