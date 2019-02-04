@@ -33,31 +33,50 @@ function addingHouses(x) {
   for (let i = 0; i < x; i++) {
     let randomPackageIndex = Math.floor(Math.random() * arr.length);
     arr[randomPackageIndex].classList.add('house');
+
     arr.splice(randomPackageIndex, 1);
   }
+}
+
+function addingTrees(x) {
+  const arrTree = Array.from(document.querySelectorAll('.cell:not(.house)'))
+    .filter((item, index) => index > 0);
+            
+  for (let i = 0; i < x; i++) {
+    let randomPackageIndex = Math.floor(Math.random() * arrTree.length);
+    arrTree[randomPackageIndex].classList.add('tree');
+
+    arrTree.splice(randomPackageIndex, 1);
+  
+  }
+  
 }
 
 function courierCall() {
   const houses = document.querySelectorAll('.house');
   let randomPackage = Math.floor(Math.random() * houses.length);
   if (houses[randomPackage].children.length > 0) {
-      randomPackage = Math.floor(Math.random() * houses.length);
+    randomPackage = Math.floor(Math.random() * houses.length);
   } else {
-       const pack = document.createElement('div');
-       pack.classList.add('new_package');
-       houses[randomPackage].appendChild(pack);
+    const pack = document.createElement('div');
+    pack.classList.add('new_package');
+    houses[randomPackage].appendChild(pack);
   }
 }
 
+function deliveryPoint() {
 
-let timeLeft=60;
-let countDown = setInterval(function(){
-  timeLeft-=1;
-  document.getElementById('countdown').textContent=timeLeft + ' seconds left';
+}
+
+
+let timeLeft = 60;
+let countDown = setInterval(function () {
+  timeLeft -= 1;
+  document.getElementById('countdown').textContent = timeLeft + ' seconds left';
   console.log(timeLeft);
-  if (timeLeft<=0){
-    document.getElementById('countdown').textContent=' Time is up!';
+  if (timeLeft <= 0) {
+    document.getElementById('countdown').textContent = ' Time is up!';
     clearInterval(countDown)
   }
-},100)
+}, 100)
 

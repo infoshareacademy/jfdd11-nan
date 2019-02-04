@@ -72,3 +72,9 @@
   border-radius: 15px;
   color: #fff;
 }
+
+.tree {
+  background-size: cover;
+  background-image: url(../img/tree.png);
+
+}
