@@ -6,9 +6,10 @@
 }
 
 .new_package {
-  content: url('../img/package.png');
+  content: url('../img/purse.png');
   float: right;
   width: 40%;
+  text-align: center;
 }
 
 .row {
