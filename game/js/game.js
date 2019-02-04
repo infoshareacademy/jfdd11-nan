@@ -11,6 +11,7 @@ const game = {
 
 makeBoard(board, 10);
 addingHouses(6);
+addingTrees(10)
 addingTruck();
 courierCall();
 //added truck
