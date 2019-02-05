@@ -88,7 +88,6 @@ function deliveryPoint() {
 
 }
 
-
 let timeLeft = 60;
 let countDown = setInterval(function () {
   timeLeft -= 1;
@@ -98,7 +97,7 @@ let countDown = setInterval(function () {
     clearInterval(countDown);
     winOrGameOver();
   }
-},100)
+},1000)
 //end game function
 function winOrGameOver (){
   let score = game.packages;
