@@ -74,7 +74,7 @@ function packagePickUp() {
 }
 
 function deliveryPackage() {
-  
+
   const isTruck = document.querySelector('.truck');
   const package = document.querySelector('.new_package');
   const deliveryHouse = document.querySelector('.house');
@@ -123,4 +123,28 @@ function winOrGameOver() {
   } else {
     swal("Good job!", text, "success");
   }
+}
+
+//added truck
+function addingTruck() {
+  const truckBase = document.querySelector('.cell');
+  const truck = document.createElement('div');
+  truck.classList.add("truck");
+  truckBase.appendChild(truck);
+}
+//truck move function
+function truckMove(target, deg) {
+  let truck = document.querySelector('.truck');
+  target.appendChild(truck);
+  truck.style.transform = `rotate(${deg}deg)`;
+}
+//play button
+function refreshPage() {
+  window.location.reload();
+}
+
+//check barriers function
+function checkBarriers() {
+  const barriers = document.querySelectorAll('.house, .tree');
+
 }
