@@ -77,30 +77,32 @@ function deliveryPackage() {
 
   const isTruck = document.querySelector('.truck');
   const package = document.querySelector('.new_package');
-  const deliveryHouse = document.querySelector('.house');
+  const deliveryHouse = document.querySelector('.delivery-point');
   if (isTruck.parentElement === deliveryHouse) {
     game.packages += 1;
     document.querySelector('#points').textContent = game.packages;
     package.remove();
+    const houses = document.querySelectorAll('.house');
+    houses.forEach(element => {
+      element.classList.remove('delivery-point');
+    });
+
     courierCall();
   }
 }
 
-function deliveryPoint(x) {
+function deliveryPoint() {
 
   const houses = document.querySelectorAll('.house');
+
+
   const truck = document.querySelector('.truck').parentElement;
   const package = document.querySelectorAll('.new_package').parentElement;
 
   let housesArray = Array.from(houses).filter(house => house !== truck);
 
-  for (let i = 0; i < x; i++) {
-
-    let randomHouseIndex = Math.floor(Math.random() * housesArray.length);
-
-    housesArray[randomHouseIndex].classList.add('delivery-point');
-
-  }
+  let randomHouseIndex = Math.floor(Math.random() * housesArray.length);
+  housesArray[randomHouseIndex].classList.add('delivery-point');
 
 };
 
@@ -112,6 +114,9 @@ let countDown = setInterval(function () {
     document.getElementById('countdown').textContent = ' Time is up!';
     clearInterval(countDown);
     winOrGameOver();
+  };
+  if (timeLeft<=59){
+    document.getElementById('start').textContent = 'Reload Game';
   }
 }, 1000)
 //end game function
@@ -145,7 +150,10 @@ function refreshPage() {
 }
 
 //check barriers function
-function checkBarriers() {
-  const barriers = document.querySelectorAll('.house, .tree');
-
+function checkBarriers(target) {
+  const package = document.querySelector('.new_package').parentElement;
+  const delivery = document.querySelector('.delivery-point');
+  const barriers = Array.from(document.querySelectorAll('.house, .tree')).filter((item) => item != package && item != delivery);
+  let checkField = barriers.includes(target);
+  return !checkField;
 }
