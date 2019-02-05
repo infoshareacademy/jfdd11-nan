@@ -92,7 +92,7 @@ function deliveryPoint(x) {
   const truck = document.querySelector('.truck').parentElement;
   const package = document.querySelectorAll('.new_package').parentElement;
 
-  let housesArray = Array.from(houses).filter(house => house !== truck || package);
+  let housesArray = Array.from(houses).filter(house => house !== truck);
 
   for (let i = 0; i < x; i++) {
 
