@@ -6,8 +6,9 @@
 }
 
 .new_package {
-  content: url('../img/purse.png');
+  content: url('../img/package\ \(1\).png');
   height: 50%;
+  transform: rotate(0deg);
 
 }
 
