@@ -20,7 +20,11 @@ window.addEventListener('keyup', function (event) {
     if (targetNode === null) {
       return;
     }
-    truckMove(targetNode,0);
+    if (checkBarriers(targetNode)){
+      truckMove(targetNode,0);
+    }
+    
+    
     packagePickUp();
     deliveryPackage()
   }
@@ -30,7 +34,9 @@ window.addEventListener('keyup', function (event) {
     if (targetNode === null) {
       return;
     }
+    if (checkBarriers(targetNode)){
     truckMove(targetNode,180);
+    }
     packagePickUp();
     deliveryPackage();
   }
@@ -41,8 +47,10 @@ window.addEventListener('keyup', function (event) {
     if (targetRow === null) {
       return;
     }
-    const targetNode = targetRow.children[truckNodeIndex]
+    const targetNode = targetRow.children[truckNodeIndex];
+    if (checkBarriers(targetNode)){
     truckMove(targetNode,270);
+    }
     packagePickUp();
     deliveryPackage();
   }
@@ -53,8 +61,10 @@ window.addEventListener('keyup', function (event) {
     if (targetRow === null) {
       return;
     }
-    const targetNode = targetRow.children[truckNodeIndex]
+    const targetNode = targetRow.children[truckNodeIndex];
+    if (checkBarriers(targetNode)){
     truckMove(targetNode,90);
+    }
     packagePickUp();
     deliveryPackage();
   }
