@@ -1,8 +1,14 @@
+*{
+  box-sizing: border-box;
+  
+}
+
 .game {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  
 }
 
 .new_package {
@@ -97,7 +103,7 @@
 }
 
 .delivery-point {
-  margin:10px;
+  
   
   border-radius: 10%;
  
