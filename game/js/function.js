@@ -81,7 +81,6 @@ function deliveryPackage() {
   if (isTruck.parentElement === deliveryHouse){
     game.packages+=1;
     document.querySelector('#points').textContent = game.packages;
-    deliveryHouse.classList.remove('.delivery-point');
     package.remove();
     courierCall();
   }
@@ -148,7 +147,7 @@ function refreshPage() {
 function checkBarriers(target) {
   const package = document.querySelector('.new_package').parentElement;
   const delivery = document.querySelector('.delivery-point');
-  const barriers = Array.from(document.querySelectorAll('.house, .tree')).filter((item)=>item!=package);
+  const barriers = Array.from(document.querySelectorAll('.house, .tree')).filter((item)=>item!=package && item!=delivery);
   let checkField = barriers.includes(target);
   return !checkField;
 }
