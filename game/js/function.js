@@ -87,7 +87,7 @@ let countDown = setInterval(function () {
     clearInterval(countDown);
     winOrGameOver();
   }
-},100)
+},1000)
 
 
 //end game function

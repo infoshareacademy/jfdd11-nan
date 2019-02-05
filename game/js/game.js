@@ -34,15 +34,19 @@ function truckMove(target,i){
   switch(i){
     case 'ArrowRight':
     game.truck.positionX+=1;
+    truck.style.transform = "rotate(0deg)";
     break;
     case 'ArrowLeft':
     game.truck.positionX-=1;
+    truck.style.transform = "rotate(180deg)";
     break;
     case 'ArrowDown':
     game.truck.positionY+=1;
+    truck.style.transform = "rotate(90deg)";
     break;
     case 'ArrowUp':
     game.truck.positionY-=1;
+    truck.style.transform = "rotate(270deg)";
     break;
     default:
     break;
