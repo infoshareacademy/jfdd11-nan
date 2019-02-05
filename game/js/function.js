@@ -74,6 +74,9 @@ function packagePickUp() {
 }
 
 function deliveryPoint() {
+  let houses = document.querySelectorAll('.house');
+  
+
 
 }
 

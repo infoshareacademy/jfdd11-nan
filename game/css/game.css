@@ -8,11 +8,8 @@
 .new_package {
   content: url('../img/package\ \(1\).png');
   height: 50%;
-<<<<<<< HEAD
-=======
   transform: rotate(0deg);
 
->>>>>>> 18f5c1253c1012ae703f4ed9a276aad379114cb5
 }
 
 .row {
