@@ -7,7 +7,7 @@ const game = {
 
 makeBoard(board, gridSize);
 addingHouses(6);
-addingTrees(20)
+addingTrees(10)
 addingTruck();
 courierCall();
 packagePickUp();
