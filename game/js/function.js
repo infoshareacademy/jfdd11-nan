@@ -28,28 +28,28 @@ function getNextRow(element) {
 }
 
 function addingHouses(x) {
-  const arr = Array.from(document.querySelectorAll('.cell'))
+  const arrHouse = Array.from(document.querySelectorAll('.cell'))
     .filter((item, index) => index > 0);
   for (let i = 0; i < x; i++) {
-    let randomPackageIndex = Math.floor(Math.random() * arr.length);
-    arr[randomPackageIndex].classList.add('house');
+    let randomPackageIndex = Math.floor(Math.random() * arrHouse.length);
+    arrHouse[randomPackageIndex].classList.add('house');
 
-    arr.splice(randomPackageIndex, 1);
+    arrHouse.splice(randomPackageIndex, 1);
   }
 }
 
 function addingTrees(x) {
   const arrTree = Array.from(document.querySelectorAll('.cell:not(.house)'))
     .filter((item, index) => index > 0);
-            
+
   for (let i = 0; i < x; i++) {
     let randomPackageIndex = Math.floor(Math.random() * arrTree.length);
     arrTree[randomPackageIndex].classList.add('tree');
 
     arrTree.splice(randomPackageIndex, 1);
-  
+
   }
-  
+
 }
 
 function courierCall() {
@@ -67,26 +67,42 @@ function courierCall() {
 function packagePickUp() {
   const package = document.querySelector('.new_package');
   const isTruck = document.querySelector('.truck');
-  if (package === isTruck.previousElementSibling){
+  if (package === isTruck.previousElementSibling) {
+    deliveryPoint(1);
     isTruck.appendChild(package);
   }
 }
 
 function deliveryPackage() {
+
   const isTruck = document.querySelector('.truck');
   const package = document.querySelector('.new_package');
   const deliveryHouse = document.querySelector('.house');
-  if (isTruck.parentElement === deliveryHouse){
-    game.packages+=1;
+  if (isTruck.parentElement === deliveryHouse) {
+    game.packages += 1;
     document.querySelector('#points').textContent = game.packages;
     package.remove();
     courierCall();
   }
 }
 
-function deliveryPoint() {
+function deliveryPoint(x) {
 
-}
+  const houses = document.querySelectorAll('.house');
+  const truck = document.querySelector('.truck').parentElement;
+  const package = document.querySelectorAll('.new_package').parentElement;
+
+  let housesArray = Array.from(houses).filter(house => house !== truck);
+
+  for (let i = 0; i < x; i++) {
+
+    let randomHouseIndex = Math.floor(Math.random() * housesArray.length);
+
+    housesArray[randomHouseIndex].classList.add('delivery-point');
+
+  }
+
+};
 
 let timeLeft = 60;
 let countDown = setInterval(function () {
@@ -97,14 +113,14 @@ let countDown = setInterval(function () {
     clearInterval(countDown);
     winOrGameOver();
   }
-},1000)
+}, 1000)
 //end game function
-function winOrGameOver (){
+function winOrGameOver() {
   let score = game.packages;
   let text = "Your score is : " + score;
-  if (score === 0){
+  if (score === 0) {
     swal("Oops!", "Try again!");
-  }else {
+  } else {
     swal("Good job!", text, "success");
   }
 }
@@ -117,18 +133,18 @@ function addingTruck() {
   truckBase.appendChild(truck);
 }
 //truck move function
-function truckMove(target,deg){
+function truckMove(target, deg) {
   let truck = document.querySelector('.truck');
   target.appendChild(truck);
-  truck.style.transform =`rotate(${deg}deg)`;
+  truck.style.transform = `rotate(${deg}deg)`;
 }
 //play button
-function refreshPage(){
+function refreshPage() {
   window.location.reload();
 }
 
 //check barriers function
-function checkBarriers () {
+function checkBarriers() {
   const barriers = document.querySelectorAll('.house, .tree');
-  
+
 }
