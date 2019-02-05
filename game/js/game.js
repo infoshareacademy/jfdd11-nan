@@ -7,10 +7,6 @@ const game = {
     positionY:0,
     speed:0
   },
-  package:{
-    positionX:0,
-    positionY:0
-  },
   packages:0
 }
 
@@ -20,6 +16,8 @@ addingTrees(10)
 addingTruck();
 courierCall();
 packagePickUp();
+
+
 //added truck
 function addingTruck() {
   const truckBase = document.querySelector('.cell');
@@ -62,6 +60,7 @@ window.addEventListener('keyup', function (event) {
     }
     truckMove(targetNode,event.code);
     packagePickUp();
+    deliveryPackage()
   }
 
   if (event.code === 'ArrowLeft') {
@@ -71,6 +70,7 @@ window.addEventListener('keyup', function (event) {
     }
     truckMove(targetNode,event.code);
     packagePickUp();
+    deliveryPackage();
   }
   if (event.code === 'ArrowUp') {
     const truckNodeIndex = Array.from(truckNode.parentElement.children).indexOf(truckNode);
@@ -82,6 +82,7 @@ window.addEventListener('keyup', function (event) {
     const targetNode = targetRow.children[truckNodeIndex]
     truckMove(targetNode,event.code);
     packagePickUp();
+    deliveryPackage();
   }
   if (event.code === 'ArrowDown') {
     const truckNodeIndex = Array.from(truckNode.parentElement.children).indexOf(truckNode);
@@ -93,6 +94,7 @@ window.addEventListener('keyup', function (event) {
     const targetNode = targetRow.children[truckNodeIndex]
     truckMove(targetNode,event.code);
     packagePickUp();
+    deliveryPackage();
   }
 })
 //play button

@@ -1,4 +1,3 @@
-var score = 0;
 function makeBoard(target, size) {
   for (let y = 0; y < size; y += 1) {
     let rowNode = createNode("row");
@@ -42,15 +41,15 @@ function addingHouses(x) {
 function addingTrees(x) {
   const arrTree = Array.from(document.querySelectorAll('.cell:not(.house)'))
     .filter((item, index) => index > 0);
-            
+
   for (let i = 0; i < x; i++) {
     let randomPackageIndex = Math.floor(Math.random() * arrTree.length);
     arrTree[randomPackageIndex].classList.add('tree');
 
     arrTree.splice(randomPackageIndex, 1);
-  
+
   }
-  
+
 }
 
 function courierCall() {
@@ -68,18 +67,42 @@ function courierCall() {
 function packagePickUp() {
   const package = document.querySelector('.new_package');
   const isTruck = document.querySelector('.truck');
-  if (package === isTruck.previousElementSibling){
+  if (package === isTruck.previousElementSibling) {
+    deliveryPoint(1);
     isTruck.appendChild(package);
   }
 }
 
-function deliveryPoint() {
-  let houses = document.querySelectorAll('.house');
+function deliveryPackage() {
   
-
-
+  const isTruck = document.querySelector('.truck');
+  const package = document.querySelector('.new_package');
+  const deliveryHouse = document.querySelector('.house');
+  if (isTruck.parentElement === deliveryHouse) {
+    game.packages += 1;
+    document.querySelector('#points').textContent = game.packages;
+    package.remove();
+    courierCall();
+  }
 }
 
+function deliveryPoint(x) {
+
+  const houses = document.querySelectorAll('.house');
+  const truck = document.querySelector('.truck').parentElement;
+  const package = document.querySelectorAll('.new_package').parentElement;
+
+  let housesArray = Array.from(houses).filter(house => house !== truck || package);
+
+  for (let i = 0; i < x; i++) {
+
+    let randomHouseIndex = Math.floor(Math.random() * housesArray.length);
+
+    housesArray[randomHouseIndex].classList.add('delivery-point');
+
+  }
+
+};
 
 let timeLeft = 60;
 let countDown = setInterval(function () {
@@ -90,14 +113,14 @@ let countDown = setInterval(function () {
     clearInterval(countDown);
     winOrGameOver();
   }
-},1000)
-
-
+}, 1000)
 //end game function
-function winOrGameOver (){
-  if (score === 0){
+function winOrGameOver() {
+  let score = game.packages;
+  let text = "Your score is : " + score;
+  if (score === 0) {
     swal("Oops!", "Try again!");
-  }else {
-    swal("Good job!", "You made it!", "success");
+  } else {
+    swal("Good job!", text, "success");
   }
 }

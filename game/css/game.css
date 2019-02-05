@@ -20,6 +20,9 @@
   width: 5vw;
   height: 5vw;
   transition: background-color 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .house {
@@ -63,7 +66,7 @@
   transform: translateY(4px);
 }
 
-#score {
+#score{
   text-align: center;
   font-size: 30px;
   margin-bottom: 30px;
@@ -98,7 +101,7 @@
   margin:10px;
   
   border-radius: 10%;
-  background: green;
+ 
   box-shadow: 0 0 0 rgb(233, 250, 0);
   animation: pulse 1s infinite;
 }
