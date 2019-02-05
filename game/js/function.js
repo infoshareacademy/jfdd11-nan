@@ -114,6 +114,9 @@ let countDown = setInterval(function () {
     document.getElementById('countdown').textContent = ' Time is up!';
     clearInterval(countDown);
     winOrGameOver();
+  };
+  if (timeLeft<=59){
+    document.getElementById('start').textContent = 'Reload Game';
   }
 }, 1000)
 //end game function
