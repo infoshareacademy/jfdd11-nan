@@ -1,15 +1,12 @@
 .game {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
 }
 
 .new_package {
   content: url('../img/package\ \(1\).png');
   height: 50%;
   transform: rotate(0deg);
-
 }
 
 .row {
@@ -46,39 +43,46 @@
 }
 
 #start {
-  padding: 15px 25px;
-  font-size: 24px;
   text-align: center;
   cursor: pointer;
-  outline: none;
   color: #fff;
   background-color: orangered;
   border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  
+  font-size: 30px;
+  padding: 15px 25px;
+  margin-bottom: 30px;
+  width:100%;
 }
+
 #start:hover {
   background-color: orangered;
 }
+
 #start:active {
-  background-color:orangered;
-  box-shadow: 0 5px #666;
+  background-color: orangered;
   transform: translateY(4px);
 }
-
-#score{
+.timer{
   text-align: center;
   font-size: 30px;
   margin-bottom: 30px;
   background-color: orangered;
-  border-radius: 15px;
   color: #fff;
+  padding: 15px 25px;
+}
+#score {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+  background-color: orangered;
+  color: #fff;
+  padding: 15px 25px;
 }
 
 #board {
   background-image: linear-gradient(to bottom right, rgb(0, 167, 0), rgb(30, 105, 0));
 }
+
 .tree {
   background-size: cover;
   background-image: url(../img/tree.png);
@@ -87,11 +91,29 @@
 .swal-button {
   padding: 7px 19px;
   border-radius: 2px;
-  background-color:orangered;
+  background-color: orangered;
   font-size: 12px;
   border: 1px solid green;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
 }
-.swal-text{
+
+.swal-text {
   font-size: 50px;
+}
+
+#controlPanel {
+  text-align: center;
+  font-size: 30px;
+  background-color: #A46EBF;
+  color: #fff;
+  padding: 15px 25px;
+}
+
+#scoreBoard {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+  background-color: orangered;
+  color: #fff;
+  padding: 15px 25px;
 }
