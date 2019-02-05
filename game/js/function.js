@@ -86,21 +86,21 @@ function deliveryPackage() {
   }
 }
 
-function deliveryPoint(x) {
+function deliveryPoint() {
 
   const houses = document.querySelectorAll('.house');
+
+  houses.forEach(element => {
+    element.classList.remove('delivery-point');
+  });
+
   const truck = document.querySelector('.truck').parentElement;
   const package = document.querySelectorAll('.new_package').parentElement;
 
   let housesArray = Array.from(houses).filter(house => house !== truck);
 
-  for (let i = 0; i < x; i++) {
-
-    let randomHouseIndex = Math.floor(Math.random() * housesArray.length);
-
-    housesArray[randomHouseIndex].classList.add('delivery-point');
-
-  }
+  let randomHouseIndex = Math.floor(Math.random() * housesArray.length);
+  housesArray[randomHouseIndex].classList.add('delivery-point');
 
 };
 
