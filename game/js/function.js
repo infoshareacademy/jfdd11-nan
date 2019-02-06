@@ -50,10 +50,12 @@ function addingTrees(x) {
     arrTree[randomPackageIndex].classList.add('tree');
 
     arrTree.splice(randomPackageIndex, 1);
-
   }
-
 }
+
+function crashTreeAudio() { 
+  crash.play(); 
+} 
 
 function courierCall() {
   const truck = document.querySelector('.truck').parentElement;
@@ -129,14 +131,33 @@ let countDown = setInterval(function () {
 //end game function
 function winOrGameOver() {
   let score = game.packages;
-  let text = "Your score is : " + score;
+  let nick = 'noname';
+ let text = "Your score is : " + score;
   if (score === 0) {
     swal("Oops!", "Try again!", "error");
   } else {
-    swal("Good job!", text, "success");
+    swal({
+      text,
+      content: {
+        element: "input",
+        attributes: {
+          placeholder: "Type your password",
+          type: "text",
+          onchange: (event) => nick = event.target.value
+        },
+      },
+      button: {
+        text: "OK",
+       
+      },
+    }).then(
+      () => {localStorage.score = nick + ': ' + score}
+    )
+    //swal("Good job!", text, "success");
   }
-  localStorage.score = score;
+  
 }
+
 
 //added truck
 function addingTruck() {
@@ -173,5 +194,12 @@ function checkBarriers(target) {
   // const delivery = document.querySelector('.delivery-point');
   const barriers = Array.from(document.querySelectorAll('.tree'));
   let checkField = barriers.includes(target);
+  if (checkField) {
+    crashTreeAudio();
+    target.classList.add('tree-shake');
+    setTimeout(()=>{
+      target.classList.remove('tree-shake');
+    },1000)
+  }
   return !checkField;
 }
