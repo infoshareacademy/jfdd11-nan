@@ -33,11 +33,11 @@
 }
 
 .truck {
-  background-image: url(../img/pickup-truck.png);
+  /* background-image: url(../img/pickup-truck.png);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  transform: rotate(0deg);
+  transform: rotate(0deg); */
   width: 100%;
   height: 100%;
   display: flex;
@@ -48,7 +48,7 @@
   text-align: center;
   cursor: pointer;
   color: #fff;
-  background-color:rgba(114, 76, 63, 0.973);
+  background-color: orangered;
   border: none;
   font-size: 30px;
   padding: 15px 25px;
@@ -58,11 +58,11 @@
 }
 
 #start:hover {
-  background-color: rgba(114, 76, 63, 0.973);
+  background-color: orangered;
 }
 
 #start:active {
-  background-color: rgba(114, 76, 63, 0.973);
+  background-color:orangered;
 
   transform: translateY(4px);
 }
@@ -78,13 +78,29 @@
   text-align: center;
   font-size: 30px;
   margin-bottom: 30px;
-  background-color:rgba(114, 76, 63, 0.973);
-  color: #fff;
+  
   padding: 15px 25px;
 }
 
 #board {
   background-image: linear-gradient(to bottom right, rgb(0, 167, 0), rgb(30, 105, 0));
+  position: relative;
+}
+
+.truckPhantom {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  top: 0;
+  left: 0;
+  background-image: url(../img/pickup-truck.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(0deg);
+  transition: all 0.4s;
+  display: flex;
+  align-items: center;
 }
 
 .tree {
@@ -124,8 +140,7 @@
   text-align: center;
   font-size: 30px;
   margin-bottom: 30px;
-  background-color: rgba(114, 76, 63, 0.973);
-  color: #fff;
+ 
   padding: 15px 25px;
 }
 .delivery-point {
@@ -182,4 +197,8 @@
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+.metric {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
 }

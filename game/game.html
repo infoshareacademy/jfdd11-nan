@@ -10,16 +10,16 @@
 </head>
 
 <body>
-    
+
 
     <div id="game" class="game">
-            <div id="controlPanel">
-                    <div id="score">parcels delivered:<span id="points">0</span></div>
-                    <div class="timer"><span id="countdown">Get Ready!</span></div>
-                    <button type="button" id="start" onclick="refreshPage()">Start Game</button>
-                <div id="scoreBoard">Score Board<span id="names"></span>
-                </div>
-                </div>
+        <div id="controlPanel">
+            <button type="button" id="start" onclick="refreshPage()">Start Game</button>
+            <div id="score" class="metric">parcels delivered:<span id="points">0</span></div>
+            <div class="timer metric"><span id="countdown">Get Ready!</span></div>
+            <div class="metric" id="scoreBoard">Score Board<span id="names"></span>
+            </div>
+        </div>
 
         <div id="board"></div>
 

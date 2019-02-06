@@ -10,6 +10,9 @@ function makeBoard(target, size) {
 
     target.appendChild(rowNode);
   }
+  const truckPhantom = document.createElement('div');
+  truckPhantom.classList.add('truckPhantom');
+  target.appendChild(truckPhantom);
 }
 
 function createNode(className) {
@@ -69,9 +72,13 @@ function courierCall() {
 function packagePickUp() {
   const package = document.querySelector('.new_package');
   const isTruck = document.querySelector('.truck');
+  const isTruckPhantom = document.querySelector('.truckPhantom');
+
   if (package === isTruck.previousElementSibling) {
     deliveryPoint();
     isTruck.appendChild(package);
+    isTruckPhantom.appendChild(package);
+
   }
 }
 
@@ -133,6 +140,7 @@ function winOrGameOver() {
   localStorage.score = score;
 }
 
+
 //added truck
 function addingTruck() {
   const truckBase = document.querySelector('.cell');
@@ -140,11 +148,22 @@ function addingTruck() {
   truck.classList.add("truck");
   truckBase.appendChild(truck);
 }
+
+function getIndex(target) {
+  return Array.from(target.parentElement.children).indexOf(target);
+}
 //truck move function
 function truckMove(target, deg) {
   let truck = document.querySelector('.truck');
   target.appendChild(truck);
-  truck.style.transform = `rotate(${deg}deg)`;
+  // truck.style.transform = `rotate(${deg}deg)`;
+  let truckPhantom = document.querySelector('.truckPhantom');
+  let x = getIndex(target);
+  let y = getIndex(target.parentElement);
+  truckPhantom.style.left = x * 5 + 'vw';
+  truckPhantom.style.top = y * 5 + 'vw';
+  truckPhantom.style.transform = `rotate(${deg}deg)`;
+
 }
 //play button
 function refreshPage() {

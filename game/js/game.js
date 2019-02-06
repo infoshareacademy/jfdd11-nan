@@ -14,7 +14,7 @@ courierCall();
 packagePickUp();
 
 
-window.addEventListener('keyup', function (event) {
+window.addEventListener('keydown', function (event) {
   const truckNode = document.querySelector('.cell .truck').parentElement;
   if (event.code === 'ArrowRight') {
     const targetNode = truckNode.nextElementSibling;
@@ -59,7 +59,9 @@ window.addEventListener('keyup', function (event) {
     const truckNodeIndex = Array.from(truckNode.parentElement.children).indexOf(truckNode);
     const truckRow = truckNode.parentElement;
     const targetRow = truckRow.nextElementSibling;
-    if (targetRow === null) {
+    console.log(targetRow);
+    if (targetRow === null || targetRow.classList.contains('truckPhantom')) {
+      console.log('null?')
       return;
     }
     const targetNode = targetRow.children[truckNodeIndex];
