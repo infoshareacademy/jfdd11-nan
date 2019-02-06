@@ -53,22 +53,22 @@ function addingTrees(x) {
 }
 
 function courierCall() {
-  const houses = document.querySelectorAll('.house');
+  const truck = document.querySelector('.truck').parentElement;
+  const houses = Array.from(document.querySelectorAll('.house')).filter((house) => house != truck);
+
   let randomPackage = Math.floor(Math.random() * houses.length);
-  if (houses[randomPackage].children.length > 0) {
-    randomPackage = Math.floor(Math.random() * houses.length);
-  } else {
-    const pack = document.createElement('div');
-    pack.classList.add('new_package');
-    houses[randomPackage].appendChild(pack);
-  }
+
+  const pack = document.createElement('div');
+  pack.classList.add('new_package');
+  houses[randomPackage].appendChild(pack);
+
 }
 
 function packagePickUp() {
   const package = document.querySelector('.new_package');
   const isTruck = document.querySelector('.truck');
   if (package === isTruck.previousElementSibling) {
-    deliveryPoint(1);
+    deliveryPoint();
     isTruck.appendChild(package);
   }
 }
@@ -115,7 +115,7 @@ let countDown = setInterval(function () {
     clearInterval(countDown);
     winOrGameOver();
   };
-  if (timeLeft<=59){
+  if (timeLeft <= 59) {
     document.getElementById('start').textContent = 'Reload Game';
   }
 }, 1000)
@@ -124,7 +124,7 @@ function winOrGameOver() {
   let score = game.packages;
   let text = "Your score is : " + score;
   if (score === 0) {
-    swal("Oops!", "Try again!","error");
+    swal("Oops!", "Try again!", "error");
   } else {
     swal("Good job!", text, "success");
   }
@@ -151,9 +151,9 @@ function refreshPage() {
 
 //check barriers function
 function checkBarriers(target) {
-  const package = document.querySelector('.new_package').parentElement;
-  const delivery = document.querySelector('.delivery-point');
-  const barriers = Array.from(document.querySelectorAll('.house, .tree')).filter((item) => item != package && item != delivery);
+  //const package = document.querySelector('.new_package').parentElement;
+  // const delivery = document.querySelector('.delivery-point');
+  const barriers = Array.from(document.querySelectorAll('.tree'));
   let checkField = barriers.includes(target);
   return !checkField;
 }
