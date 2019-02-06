@@ -48,7 +48,7 @@
   text-align: center;
   cursor: pointer;
   color: #fff;
-  background-color:rgba(114, 76, 63, 0.973);
+  background-color: orangered;
   border: none;
   font-size: 30px;
   padding: 15px 25px;
@@ -58,11 +58,11 @@
 }
 
 #start:hover {
-  background-color: rgba(114, 76, 63, 0.973);
+  background-color: orangered;
 }
 
 #start:active {
-  background-color: rgba(114, 76, 63, 0.973);
+  background-color:orangered;
 
   transform: translateY(4px);
 }
