@@ -129,13 +129,31 @@ let countDown = setInterval(function () {
 //end game function
 function winOrGameOver() {
   let score = game.packages;
-  let text = "Your score is : " + score;
+  let nick = 'noname';
+ let text = "Your score is : " + score;
   if (score === 0) {
     swal("Oops!", "Try again!", "error");
   } else {
-    swal("Good job!", text, "success");
+    swal({
+      text,
+      content: {
+        element: "input",
+        attributes: {
+          placeholder: "Type your password",
+          type: "text",
+          onchange: (event) => nick = event.target.value
+        },
+      },
+      button: {
+        text: "OK",
+       
+      },
+    }).then(
+      () => {localStorage.score = nick + ': ' + score}
+    )
+    //swal("Good job!", text, "success");
   }
-  localStorage.score = score;
+  
 }
 
 
