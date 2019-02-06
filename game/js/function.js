@@ -124,10 +124,11 @@ function winOrGameOver() {
   let score = game.packages;
   let text = "Your score is : " + score;
   if (score === 0) {
-    swal("Oops!", "Try again!");
+    swal("Oops!", "Try again!","error");
   } else {
     swal("Good job!", text, "success");
   }
+  localStorage.score = score;
 }
 
 //added truck
