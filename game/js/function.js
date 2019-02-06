@@ -50,10 +50,12 @@ function addingTrees(x) {
     arrTree[randomPackageIndex].classList.add('tree');
 
     arrTree.splice(randomPackageIndex, 1);
-
   }
-
 }
+
+function crashTreeAudio() { 
+  crash.play(); 
+} 
 
 function courierCall() {
   const truck = document.querySelector('.truck').parentElement;
@@ -192,5 +194,12 @@ function checkBarriers(target) {
   // const delivery = document.querySelector('.delivery-point');
   const barriers = Array.from(document.querySelectorAll('.tree'));
   let checkField = barriers.includes(target);
+  if (checkField) {
+    crashTreeAudio();
+    target.classList.add('tree-shake');
+    setTimeout(()=>{
+      target.classList.remove('tree-shake');
+    },1000)
+  }
   return !checkField;
 }
