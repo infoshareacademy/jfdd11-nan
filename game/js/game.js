@@ -1,5 +1,6 @@
 "use strict";
 const board = document.querySelector("#board");
+const crash = document.querySelector('#treeCrash');
 const gridSize = 10;
 const game = {
   packages:0
