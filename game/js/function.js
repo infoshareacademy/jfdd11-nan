@@ -70,9 +70,13 @@ function courierCall() {
 function packagePickUp() {
   const package = document.querySelector('.new_package');
   const isTruck = document.querySelector('.truck');
+  const isTruckPhantom = document.querySelector('.truckPhantom');
+
   if (package === isTruck.previousElementSibling) {
     deliveryPoint();
     isTruck.appendChild(package);
+    isTruckPhantom.appendChild(package);
+
   }
 }
 
