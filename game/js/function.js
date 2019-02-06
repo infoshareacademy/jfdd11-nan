@@ -131,6 +131,7 @@ function winOrGameOver() {
   localStorage.score = score;
 }
 
+
 //added truck
 function addingTruck() {
   const truckBase = document.querySelector('.cell');
