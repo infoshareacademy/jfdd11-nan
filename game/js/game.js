@@ -58,7 +58,7 @@ window.addEventListener('keydown', function (event) {
     const truckNodeIndex = Array.from(truckNode.parentElement.children).indexOf(truckNode);
     const truckRow = truckNode.parentElement;
     const targetRow = truckRow.nextElementSibling;
-    console.log(targetRow);
+    
     if (targetRow === null || targetRow.classList.contains('truckPhantom')) {
       console.log('null?')
       return;
