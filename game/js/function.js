@@ -211,3 +211,14 @@ function checkBarriers(target) {
   }
   return !checkField;
 }
+
+function trackenApear() {
+  const emptyCellsNode = Array.from(document.querySelectorAll('.cell:not(.tree):not(.house)')).filter((cell)=>cell.hasChildNodes.length===0
+  );
+  let randomTrackenIndex = Math.floor(Math.random()*emptyCellsNode.length);
+  const trackenNode = document.createElement('div');
+  trackenNode.classList.add('tracken-man');
+  emptyCellsNode[randomTrackenIndex].appendChild(trackenNode);
+
+  console.log(emptyCellsNode);
+}

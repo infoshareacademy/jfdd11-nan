@@ -14,6 +14,12 @@
   transform: rotate(0deg);
 }
 
+.tracken-man {
+  content: url('/img/tracken\ \(1\).svg');
+  height: 80%;
+  transform: rotate(0deg);
+}
+
 .row {
   display: flex;
 }
