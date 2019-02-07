@@ -215,7 +215,14 @@
   text-align: center;
   display: none;
   border-radius: 5px;
+  
   font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+#startPopupTitle{
+
+  font-weight: 700;
+  font-size: 22px;
 }
 
 #show-popup {
