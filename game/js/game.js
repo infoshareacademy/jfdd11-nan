@@ -6,6 +6,7 @@ const game = {
   packages:0
 }
 
+
 makeBoard(board, gridSize);
 addingHouses(6);
 addingTrees(10)
