@@ -116,19 +116,19 @@ function deliveryPoint() {
 };
 
 let timeLeft = 60;
-let countDown = setInterval(function() {
-        timeLeft -= 1;
-        document.getElementById('countdown').textContent = timeLeft + ' seconds left';
-        if (timeLeft <= 0) {
-            document.getElementById('countdown').textContent = ' Time is up!';
-            clearInterval(countDown);
-            winOrGameOver();
-        };
-        if (timeLeft <= 59) {
-            document.getElementById('start').textContent = 'Reload Game';
-        }
-    }, 1000)
-    //end game function
+let countDown = setInterval(function () {
+    timeLeft -= 1;
+    document.getElementById('countdown').textContent = timeLeft + ' seconds left';
+    if (timeLeft <= 0) {
+        document.getElementById('countdown').textContent = ' Time is up!';
+        clearInterval(countDown);
+        winOrGameOver();
+    };
+    if (timeLeft <= 59) {
+        document.getElementById('start').textContent = 'Reload Game';
+    }
+}, 1000)
+//end game function
 function winOrGameOver() {
     let score = game.packages;
     let nick = 'noname';
@@ -137,24 +137,30 @@ function winOrGameOver() {
         swal("Oops!", "Try again!", "error");
     } else {
         swal({
-                text,
-                content: {
-                    element: "input",
-                    attributes: {
-                        placeholder: "Enter your name",
-                        type: "text",
-                        onchange: (event) => nick = event.target.value
-                    },
+            text,
+            content: {
+                element: "input",
+                attributes: {
+                    placeholder: "Enter your name",
+                    type: "text",
+                    onchange: (event) => nick = event.target.value
                 },
-                button: {
-                    text: "OK",
+            },
+            button: {
+                text: "OK",
 
-                },
-            })
+            },
+        })
             .then(() => {
-                game.scoreStorage = JSON.parse(window.localStorage.getItem('score'));
-                game.scoreStorage[nick] = score;
-                window.localStorage.setItem('score', JSON.stringify(game.scoreStorage));
+                getScoresPromise().then(scores => {
+                    scores[nick] = score;
+                    fetch('https://mail-collector-d2e51.firebaseio.com/scores/nan.json', { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
+
+                })
+
+                // game.scoreStorage = JSON.parse(window.localStorage.getItem('score'));
+                // game.scores[nick] = score;
+                // window.localStorage.setItem('score', JSON.stringify(game.scoreStorage));
             }
             )
 

@@ -3,26 +3,30 @@ const board = document.querySelector("#board");
 const crash = document.querySelector('#treeCrash');
 const gridSize = 10;
 const game = {
-        packages: 0
-    }
-    //scoreBoard
+    packages: 0
+}
+//scoreBoard
 let scoreStorage = {};
 
-(function() {
-    scoreStorage = window.localStorage.getItem('score');
-    
-    if (!scoreStorage) {
-        window.localStorage.setItem('score', JSON.stringify({}));
-    } else {
-        const boardBlock = document.getElementById('scoreBoard');
-        const scores = JSON.parse(scoreStorage);
-        Object.keys(scores).forEach(key => {
-            const list = document.createElement('li');
-        list.textContent = key + ':' + scores[key];
-        boardBlock.appendChild(list);
+const getScoresPromise = () => fetch('https://mail-collector-d2e51.firebaseio.com/scores/nan.json').then(
+    response => response.json()
+    ).then(scores => scores === null ? {} : scores)
+
+function getScores() {
+    getScoresPromise().then(scores => {
+          
+                    const boardBlock = document.getElementById('scoreBoard');
+                boardBlock.innerHTML = '';
+                    Object.keys(scores).map(key => ({ points: scores[key], nick: key })).sort((a, b) => b.points - a.points).slice(0,9).forEach(player => {
+                        const list = document.createElement('li');
+                    list.textContent = player.nick + ':' + player.points;
+                    boardBlock.appendChild(list);
+                    })
+                
         })
-    }
-})();
+       }
+
+getScores();
 //scoreBoard
 makeBoard(board, gridSize);
 addingHouses(6);
@@ -32,7 +36,7 @@ courierCall();
 packagePickUp();
 
 
-window.addEventListener('keydown', function(event) {
+window.addEventListener('keydown', function (event) {
     const truckNode = document.querySelector('.cell .truck').parentElement;
     if (event.code === 'ArrowRight') {
         const targetNode = truckNode.nextElementSibling;
