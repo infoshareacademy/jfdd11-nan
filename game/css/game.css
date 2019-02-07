@@ -44,7 +44,7 @@
   align-items: center;
 }
 
-#start {
+.start {
   text-align: center;
   cursor: pointer;
   color: #fff;
@@ -57,11 +57,11 @@
 
 }
 
-#start:hover {
+.start:hover {
   background-color: orangered;
 }
 
-#start:active {
+.start:active {
   background-color:orangered;
 
   transform: translateY(4px);
@@ -82,7 +82,7 @@
   padding: 15px 25px;
 }
 
-#board {
+.board {
   background-image: linear-gradient(to bottom right, rgb(0, 167, 0), rgb(30, 105, 0));
   position: relative;
 }
