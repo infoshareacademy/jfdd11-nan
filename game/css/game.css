@@ -8,6 +8,10 @@
   justify-content: center;
 }
 
+.game.blured {
+  filter: blur(5px);
+}
+
 .new_package {
   content: url('../img/package\ \(1\).png');
   height: 50%;
@@ -202,3 +206,72 @@
   background: rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
 }
+
+#popup {
+  padding: .5em;
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  left: 34%;
+  right: 25%;
+  width: 70vh;
+  background: #FFF;
+  padding: 1em;
+  text-align: center;
+  display: none;border-radius: 5px;
+  font: 400 13.3333px Arial;
+
+  
+  
+}
+
+#show-popup {
+  display: block;
+  margin: 2em auto;
+  width: 14em;
+  padding: 1em;
+  text-align: center;
+  text-decoration: none;
+  background: #f35907;
+  color: #fff;
+}
+.startPopupButtons{
+  
+  padding: 7px 19px;
+  border-radius: 2px;
+  font-size: 12px;
+  
+  border: 1px solid green;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+  color: white;
+  font: 400 13.3333px Arial;
+  cursor: pointer;
+ 
+}
+
+
+
+#startPopupButton{
+
+  float: right;
+  background-color: green;
+  
+}
+
+
+#exitPopupButton{
+  float: left;
+  background-color: orangered;
+  
+}
+#startPopupButton:hover{
+  background-color: #7cd1f9;
+
+}
+
+#exitPopupButton:hover{
+  background-color: #7cd1f9;
+
+
+}
+
