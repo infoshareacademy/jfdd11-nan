@@ -136,16 +136,15 @@ let isRuning = false;
 document.getElementById('start').addEventListener('click', function () {
     isRuning = !isRuning;
     if (isRuning) {
+        //startGame();
         countDown = setInterval(function () {
-            console.log(countDown);
             timeLeft -= 1;
             document.getElementById('start').textContent = 'Pause';
             document.getElementById('countdown').textContent = timeLeft + ' seconds left';
             if (timeLeft <= 0) {
                 document.getElementById('countdown').textContent = ' Time is up!';
-                console.log(countDown);
+                document.getElementById('start').textContent = 'Play again';
                 clearInterval(countDown);
-                console.log(countDown);
                 winOrGameOver();
             };
         }, 1000);    
