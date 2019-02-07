@@ -104,7 +104,7 @@ function deliveryPackage() {
     houses.forEach(element => {
       element.classList.remove('delivery-point');
     });
-
+    timeLeft+=1;
     courierCall();
   }
 }
@@ -202,6 +202,8 @@ function checkBarriers(target) {
   let checkField = barriers.includes(target);
   if (checkField) {
     crashTreeAudio();
+    timeLeft-=4;
+    console.log(timeLeft);
     target.classList.add('tree-shake');
     setTimeout(()=>{
       target.classList.remove('tree-shake');
