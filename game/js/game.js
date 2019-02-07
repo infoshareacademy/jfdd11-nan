@@ -1,6 +1,7 @@
 "use strict";
 const board = document.querySelector("#board");
 const crash = document.querySelector('#treeCrash');
+const startButtonNode = document.querySelector('#start');
 const startEngine = document.querySelector('#startEngine');
 const pickUpPackage = document.querySelector('#pickUpPackage');
 const packageDelivered = document.querySelector('#deliveryPackage');

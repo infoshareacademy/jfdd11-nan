@@ -53,26 +53,29 @@ function addingTrees(x) {
     }
 }
 
-function crashTreeAudio() { 
-  crash.play(); 
-} 
-function startEngineAudio() { 
-  startEngine.play(); 
-} 
-function pickUpPackageAudio() { 
-  pickUpPackage.play(); 
-} 
-function deliveryPackageAudio() { 
-  packageDelivered.play(); 
-} 
+function crashTreeAudio() {
+    crash.play();
+}
+
+function startEngineAudio() {
+    startEngine.play();
+}
+
+function pickUpPackageAudio() {
+    pickUpPackage.play();
+}
+
+function deliveryPackageAudio() {
+    packageDelivered.play();
+}
 
 function courierCall() {
-  const truck = document.querySelector('.truck').parentElement;
-  const houses = Array.from(document.querySelectorAll('.house')).filter((house) => house != truck);
-  let randomPackage = Math.floor(Math.random() * houses.length);
-  const pack = document.createElement('div');
-  pack.classList.add('new_package');
-  houses[randomPackage].appendChild(pack);
+    const truck = document.querySelector('.truck').parentElement;
+    const houses = Array.from(document.querySelectorAll('.house')).filter((house) => house != truck);
+    let randomPackage = Math.floor(Math.random() * houses.length);
+    const pack = document.createElement('div');
+    pack.classList.add('new_package');
+    houses[randomPackage].appendChild(pack);
 
 }
 
@@ -81,65 +84,78 @@ function packagePickUp() {
     const isTruck = document.querySelector('.truck');
     const isTruckPhantom = document.querySelector('.truckPhantom');
     const tracken = document.querySelector('.tracken-man');
-  if (package === isTruck.previousElementSibling) {
-    pickUpPackageAudio();
-    deliveryPoint();
-    isTruck.appendChild(package);
-    isTruckPhantom.appendChild(package);
+    if (package === isTruck.previousElementSibling) {
+        pickUpPackageAudio();
+        deliveryPoint();
+        isTruck.appendChild(package);
+        isTruckPhantom.appendChild(package);
 
     }
     if (tracken && tracken === isTruck.previousElementSibling) {
-      pickUpPackageAudio();
-      deliveryPoint();
-      isTruck.appendChild(tracken);
-      isTruckPhantom.appendChild(tracken);
-  
-      }
+        pickUpPackageAudio();
+        deliveryPoint();
+        isTruck.appendChild(tracken);
+        isTruckPhantom.appendChild(tracken);
+
+    }
 }
 
 function deliveryPackage() {
 
-  const isTruck = document.querySelector('.truck');
-  const package = document.querySelector('.new_package');
-  const deliveryHouse = document.querySelector('.delivery-point');
-  if (isTruck.parentElement === deliveryHouse) {
-    game.packages += 1;
-    deliveryPackageAudio();
-    document.querySelector('#points').textContent = game.packages;
-    package.remove();
-    const houses = document.querySelectorAll('.house');
-    houses.forEach(element => {
-      element.classList.remove('delivery-point');
-    });
-    timeLeft+=1;
-    courierCall();
-  }
+    const isTruck = document.querySelector('.truck');
+    const package = document.querySelector('.new_package');
+    const deliveryHouse = document.querySelector('.delivery-point');
+    if (isTruck.parentElement === deliveryHouse) {
+        game.packages += 1;
+        deliveryPackageAudio();
+        document.querySelector('#points').textContent = game.packages;
+        package.remove();
+        const houses = document.querySelectorAll('.house');
+        houses.forEach(element => {
+            element.classList.remove('delivery-point');
+        });
+        timeLeft += 1;
+        courierCall();
+    }
 }
 
 function deliveryPoint() {
 
-  const houses = document.querySelectorAll('.house');
-  const truck = document.querySelector('.truck').parentElement;
-  const package = document.querySelectorAll('.new_package').parentElement;
-  let housesArray = Array.from(houses).filter(house => house !== truck);
-  let randomHouseIndex = Math.floor(Math.random() * housesArray.length);
-  housesArray[randomHouseIndex].classList.add('delivery-point');
+    const houses = document.querySelectorAll('.house');
+    const truck = document.querySelector('.truck').parentElement;
+    const package = document.querySelectorAll('.new_package').parentElement;
+    let housesArray = Array.from(houses).filter(house => house !== truck);
+    let randomHouseIndex = Math.floor(Math.random() * housesArray.length);
+    housesArray[randomHouseIndex].classList.add('delivery-point');
 
 };
 
 let timeLeft = 60;
-let countDown = setInterval(function () {
-    timeLeft -= 1;
-    document.getElementById('countdown').textContent = timeLeft + ' seconds left';
-    if (timeLeft <= 0) {
-        document.getElementById('countdown').textContent = ' Time is up!';
+let countDown = 0;
+let isRuning = false;
+document.getElementById('start').addEventListener('click', function () {
+    isRuning = !isRuning;
+    if (isRuning) {
+        countDown = setInterval(function () {
+            console.log(countDown);
+            timeLeft -= 1;
+            document.getElementById('start').textContent = 'Pause';
+            document.getElementById('countdown').textContent = timeLeft + ' seconds left';
+            if (timeLeft <= 0) {
+                document.getElementById('countdown').textContent = ' Time is up!';
+                console.log(countDown);
+                clearInterval(countDown);
+                console.log(countDown);
+                winOrGameOver();
+            };
+        }, 1000);    
+    } else {
         clearInterval(countDown);
-        winOrGameOver();
-    };
-    if (timeLeft <= 59) {
-        document.getElementById('start').textContent = 'Reload Game';
+        document.getElementById('start').textContent = 'Resume';
     }
-}, 1000)
+})
+
+
 //end game function
 function winOrGameOver() {
     let score = game.packages;
@@ -149,32 +165,34 @@ function winOrGameOver() {
         swal("Oops!", "Try again!", "error");
     } else {
         swal({
-            text,
-            content: {
-                element: "input",
-                attributes: {
-                    placeholder: "Enter your name",
-                    type: "text",
-                    onchange: (event) => nick = event.target.value
+                text,
+                content: {
+                    element: "input",
+                    attributes: {
+                        placeholder: "Enter your name",
+                        type: "text",
+                        onchange: (event) => nick = event.target.value
+                    },
                 },
-            },
-            button: {
-                text: "OK",
+                button: {
+                    text: "OK",
 
-            },
-        })
+                },
+            })
             .then(() => {
                 getScoresPromise().then(scores => {
                     scores[nick] = score;
-                    fetch('https://mail-collector-d2e51.firebaseio.com/scores/nan.json', { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
+                    fetch('https://mail-collector-d2e51.firebaseio.com/scores/nan.json', {
+                        method: 'put',
+                        body: JSON.stringify(scores)
+                    }).then(() => getScores())
 
                 })
 
                 // game.scoreStorage = JSON.parse(window.localStorage.getItem('score'));
                 // game.scores[nick] = score;
                 // window.localStorage.setItem('score', JSON.stringify(game.scoreStorage));
-            }
-            )
+            })
 
     }
 
@@ -194,14 +212,14 @@ function getIndex(target) {
 }
 //truck move function
 function truckMove(target, deg) {
-  let truck = document.querySelector('.truck');
-  target.appendChild(truck);
-  let truckPhantom = document.querySelector('.truckPhantom');
-  let x = getIndex(target);
-  let y = getIndex(target.parentElement);
-  truckPhantom.style.left = x * 5 + 'vw';
-  truckPhantom.style.top = y * 5 + 'vw';
-  truckPhantom.style.transform = `rotate(${deg}deg)`;
+    let truck = document.querySelector('.truck');
+    target.appendChild(truck);
+    let truckPhantom = document.querySelector('.truckPhantom');
+    let x = getIndex(target);
+    let y = getIndex(target.parentElement);
+    truckPhantom.style.left = x * 5 + 'vw';
+    truckPhantom.style.top = y * 5 + 'vw';
+    truckPhantom.style.transform = `rotate(${deg}deg)`;
 
 }
 //play button
@@ -211,27 +229,26 @@ function refreshPage() {
 
 //check barriers function
 function checkBarriers(target) {
-  const barriers = Array.from(document.querySelectorAll('.tree'));
-  let checkField = barriers.includes(target);
-  if (checkField) {
-    crashTreeAudio();
-    timeLeft-=4;
-    console.log(timeLeft);
-    target.classList.add('tree-shake');
-    setTimeout(()=>{
-      target.classList.remove('tree-shake');
-    },1000)
-  }
-  return !checkField;
+    const barriers = Array.from(document.querySelectorAll('.tree'));
+    let checkField = barriers.includes(target);
+    if (checkField) {
+        crashTreeAudio();
+        timeLeft -= 4;
+        console.log(timeLeft);
+        target.classList.add('tree-shake');
+        setTimeout(() => {
+            target.classList.remove('tree-shake');
+        }, 1000)
+    }
+    return !checkField;
 }
 
 function trackenApear() {
-  const emptyCellsNode = Array.from(document.querySelectorAll('.cell:not(.tree):not(.house)')).filter((cell)=>cell.hasChildNodes.length===0
-  );
-  let randomTrackenIndex = Math.floor(Math.random()*emptyCellsNode.length);
-  const trackenNode = document.createElement('div');
-  trackenNode.classList.add('tracken-man');
-  emptyCellsNode[randomTrackenIndex].appendChild(trackenNode);
+    const emptyCellsNode = Array.from(document.querySelectorAll('.cell:not(.tree):not(.house)')).filter((cell) => cell.hasChildNodes.length === 0);
+    let randomTrackenIndex = Math.floor(Math.random() * emptyCellsNode.length);
+    const trackenNode = document.createElement('div');
+    trackenNode.classList.add('tracken-man');
+    emptyCellsNode[randomTrackenIndex].appendChild(trackenNode);
 
-  console.log(emptyCellsNode);
+    console.log(emptyCellsNode);
 }
