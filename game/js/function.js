@@ -80,7 +80,7 @@ function packagePickUp() {
     const package = document.querySelector('.new_package');
     const isTruck = document.querySelector('.truck');
     const isTruckPhantom = document.querySelector('.truckPhantom');
-
+    const tracken = document.querySelector('.tracken-man');
   if (package === isTruck.previousElementSibling) {
     pickUpPackageAudio();
     deliveryPoint();
@@ -88,6 +88,13 @@ function packagePickUp() {
     isTruckPhantom.appendChild(package);
 
     }
+    if (tracken && tracken === isTruck.previousElementSibling) {
+      pickUpPackageAudio();
+      deliveryPoint();
+      isTruck.appendChild(tracken);
+      isTruckPhantom.appendChild(tracken);
+  
+      }
 }
 
 function deliveryPackage() {
