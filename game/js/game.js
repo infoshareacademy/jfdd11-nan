@@ -10,13 +10,17 @@ let scoreStorage = {};
 
 (function() {
     scoreStorage = window.localStorage.getItem('score');
+    
     if (!scoreStorage) {
         window.localStorage.setItem('score', JSON.stringify({}));
     } else {
         const boardBlock = document.getElementById('scoreBoard');
-        const list = document.createElement('li');
-        list.textContent = scoreStorage;
+        const scores = JSON.parse(scoreStorage);
+        Object.keys(scores).forEach(key => {
+            const list = document.createElement('li');
+        list.textContent = key + ':' + scores[key];
         boardBlock.appendChild(list);
+        })
     }
 })();
 //scoreBoard

@@ -155,7 +155,8 @@ function winOrGameOver() {
                 game.scoreStorage = JSON.parse(window.localStorage.getItem('score'));
                 game.scoreStorage[nick] = score;
                 window.localStorage.setItem('score', JSON.stringify(game.scoreStorage));
-            })
+            }
+            )
 
     }
 
