@@ -1,6 +1,9 @@
 "use strict";
 const board = document.querySelector("#board");
 const crash = document.querySelector('#treeCrash');
+const startEngine = document.querySelector('#startEngine');
+const pickUpPackage = document.querySelector('#pickUpPackage');
+const packageDelivered = document.querySelector('#deliveryPackage');
 const gridSize = 10;
 const game = {
   packages:0
@@ -59,9 +62,7 @@ window.addEventListener('keydown', function (event) {
     const truckNodeIndex = Array.from(truckNode.parentElement.children).indexOf(truckNode);
     const truckRow = truckNode.parentElement;
     const targetRow = truckRow.nextElementSibling;
-    console.log(targetRow);
     if (targetRow === null || targetRow.classList.contains('truckPhantom')) {
-      console.log('null?')
       return;
     }
     const targetNode = targetRow.children[truckNodeIndex];

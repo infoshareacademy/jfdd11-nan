@@ -56,13 +56,20 @@ function addingTrees(x) {
 function crashTreeAudio() { 
   crash.play(); 
 } 
+function startEngineAudio() { 
+  startEngine.play(); 
+} 
+function pickUpPackageAudio() { 
+  pickUpPackage.play(); 
+} 
+function deliveryPackageAudio() { 
+  packageDelivered.play(); 
+} 
 
 function courierCall() {
   const truck = document.querySelector('.truck').parentElement;
   const houses = Array.from(document.querySelectorAll('.house')).filter((house) => house != truck);
-
   let randomPackage = Math.floor(Math.random() * houses.length);
-
   const pack = document.createElement('div');
   pack.classList.add('new_package');
   houses[randomPackage].appendChild(pack);
@@ -75,6 +82,7 @@ function packagePickUp() {
   const isTruckPhantom = document.querySelector('.truckPhantom');
 
   if (package === isTruck.previousElementSibling) {
+    pickUpPackageAudio();
     deliveryPoint();
     isTruck.appendChild(package);
     isTruckPhantom.appendChild(package);
@@ -89,6 +97,7 @@ function deliveryPackage() {
   const deliveryHouse = document.querySelector('.delivery-point');
   if (isTruck.parentElement === deliveryHouse) {
     game.packages += 1;
+    deliveryPackageAudio();
     document.querySelector('#points').textContent = game.packages;
     package.remove();
     const houses = document.querySelectorAll('.house');
@@ -103,13 +112,9 @@ function deliveryPackage() {
 function deliveryPoint() {
 
   const houses = document.querySelectorAll('.house');
-
-
   const truck = document.querySelector('.truck').parentElement;
   const package = document.querySelectorAll('.new_package').parentElement;
-
   let housesArray = Array.from(houses).filter(house => house !== truck);
-
   let randomHouseIndex = Math.floor(Math.random() * housesArray.length);
   housesArray[randomHouseIndex].classList.add('delivery-point');
 
@@ -174,7 +179,6 @@ function getIndex(target) {
 function truckMove(target, deg) {
   let truck = document.querySelector('.truck');
   target.appendChild(truck);
-  // truck.style.transform = `rotate(${deg}deg)`;
   let truckPhantom = document.querySelector('.truckPhantom');
   let x = getIndex(target);
   let y = getIndex(target.parentElement);
@@ -190,8 +194,6 @@ function refreshPage() {
 
 //check barriers function
 function checkBarriers(target) {
-  //const package = document.querySelector('.new_package').parentElement;
-  // const delivery = document.querySelector('.delivery-point');
   const barriers = Array.from(document.querySelectorAll('.tree'));
   let checkField = barriers.includes(target);
   if (checkField) {
