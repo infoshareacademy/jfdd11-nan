@@ -43,7 +43,7 @@ function addingHouses(x) {
 
 function addingTrees(x) {
   const arrTree = Array.from(document.querySelectorAll('.cell:not(.house)'))
-    .filter((item, index) => index > 0);
+    .filter((item, index) => index > 1);
 
   for (let i = 0; i < x; i++) {
     let randomPackageIndex = Math.floor(Math.random() * arrTree.length);
@@ -159,12 +159,20 @@ function startGame() {
         clearInterval(countDown);
         winOrGameOver();
         resetGame();
+        
       };
     }, 1000);
-  } else {
+
+  } 
+  else if(!isRuning && timeLeft <= 0){
+    addingHouses(6);
+  addingTrees(10);
+  }
+  else {
     clearInterval(countDown);
     document.getElementById('start').textContent = 'Resume';
-  }}
+  }
+}
 
 let timeLeft = 60;
 let countDown = 0;
@@ -197,11 +205,11 @@ function winOrGameOver() {
             },
         })
             .then(() => {
-                getScoresPromise().then(scores => {
-                    scores[nick] = score;
-                    fetch(fetchAddress, { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
+                
+              const result = { nick: nick, points: score }
 
-        })
+              addScore(result).then(refreshScores)
+
 
         // game.scoreStorage = JSON.parse(window.localStorage.getItem('score'));
         // game.scores[nick] = score;
