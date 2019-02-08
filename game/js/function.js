@@ -169,33 +169,33 @@ document.getElementById('start').addEventListener('click', startGame)
 
 //end game function
 function winOrGameOver() {
-  let score = game.packages;
-  let nick = 'noname';
-  let text = "Your score is : " + score;
-  if (score === 0) {
-    swal("Oops!", "Try again!", "error");
-  } else {
-    swal({
-      text,
-      content: {
-        element: "input",
-        attributes: {
-          placeholder: "Enter your name",
-          type: "text",
-          onchange: (event) => nick = event.target.value
-        },
-      },
-      button: {
-        text: "OK",
+    let score = game.packages;
+    let nick = 'noname';
+    let text = "Your score is : " + score;
+    if (score === 0) {
+        swal("Oops!", "Try again!", "error");
+    } else {
+        swal({
+            text,
+            content: {
+                element: "input",
+                attributes: {
+                    placeholder: "Enter your name",
+                    type: "text",
+                    onchange: (event) => nick = event.target.value
+                },
+            },
+            button: {
+                text: "OK",
 
-      },
-    })
-      .then(() => {
-        getScoresPromise().then(scores => {
-          scores[nick] = score;
-          fetch(fetchAddress, { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
-
+            },
         })
+            .then(() => {
+                
+              const result = { nick: nick, points: score }
+
+              addScore(result).then(refreshScores)
+
 
         // game.scoreStorage = JSON.parse(window.localStorage.getItem('score'));
         // game.scores[nick] = score;
