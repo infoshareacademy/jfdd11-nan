@@ -159,7 +159,7 @@ function winOrGameOver() {
             .then(() => {
                 getScoresPromise().then(scores => {
                     scores[nick] = score;
-                    fetch('https://mail-collector-d2e51.firebaseio.com/scores/nan.json', { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
+                    fetch(fetchAddress, { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
 
                 })
 
