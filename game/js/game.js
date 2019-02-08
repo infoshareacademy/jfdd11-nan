@@ -17,18 +17,19 @@ const getScoresPromise = () => fetch(fetchAddress).then(
 ).then(scores => scores === null ? {} : scores)
 
 function getScores() {
-  getScoresPromise().then(scores => {
-
-    const boardBlock = document.getElementById('scoreBoard');
-    boardBlock.innerHTML = 'Score Board:';
-    Object.keys(scores).map(key => ({ points: scores[key], nick: key })).sort((a, b) => b.points - a.points).slice(0, 9).forEach(player => {
-      const list = document.createElement('li');
-      list.textContent = player.nick + ':' + player.points;
-      boardBlock.appendChild(list);
-    })
-
-  })
-}
+    getScoresPromise().then(scores => {
+          
+                    const boardBlock = document.getElementById('listOl');
+                boardBlock.innerHTML = '';
+                    Object.keys(scores).map(key => ({ points: scores[key], nick: key })).sort((a, b) => b.points - a.points).slice(0,9).forEach(player => {
+                       
+                        const list = document.createElement('li');
+                   list.textContent = player.nick + ': ' + player.points;
+                    boardBlock.appendChild(list);
+                    })
+                
+        })
+       }
 
 getScores();
 //scoreBoard
@@ -61,6 +62,7 @@ packagePickUp();
 
 window.addEventListener('keydown', function (event) {
   const truckNode = document.querySelector('.cell .truck').parentElement;
+  if (!isRuning){return}
   if (event.code === 'ArrowRight') {
     const targetNode = truckNode.nextElementSibling;
     if (targetNode === null) {
