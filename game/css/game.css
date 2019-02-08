@@ -6,12 +6,16 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 .game {
   justify-content: center;
 }
 
+.game.blured {
+  filter: blur(5px);}
+  
 .row, 
 .game {
   display: flex;
@@ -64,7 +68,7 @@ body {
   cursor: pointer;
   color: #fff;
   border: none;
-  font-size: 30px;
+  font-size: 25px;
   padding: 15px 25px;
   margin-bottom: 30px;
   width: 100%;
@@ -82,7 +86,7 @@ body {
 
 .timer {
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   margin-bottom: 30px;
   background-color: rgba(114, 76, 63, 0.973);
   color: #fff;
@@ -93,7 +97,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   margin-bottom: 30px;
   padding: 15px 25px;
 }
@@ -203,4 +207,78 @@ body {
     transform: translate3d(4px, 0, 0);
   }
 }
+ol{
+  text-align: start;
+}
 
+.metric {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#popup {
+  padding: .5em;
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  left: 34%;
+  right: 25%;
+  width: 70vh;
+  background: #FFF;
+  padding: 1em;
+  text-align: center;
+  display: none;
+  border-radius: 5px;
+  color: rgba(0,0,0,.64);
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+#startPopupTitle{
+
+  font-weight: 700;
+  font-size: 22px;
+}
+
+#show-popup {
+  display: block;
+  margin: 2em auto;
+  width: 14em;
+  padding: 1em;
+  text-align: center;
+  text-decoration: none;
+  background: #f35907;
+  color: #fff;
+}
+
+.startPopupButtons {
+  padding: 7px 19px;
+  border-radius: 2px;
+  font-size: 12px;
+  border: 1px solid green;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#startPopupButton {
+  float: right;
+  background-color: green;
+}
+
+#exitPopupButton {
+  float: left;
+  background-color: orangered;
+}
+
+#startPopupButton:hover {
+  background-color: #7cd1f9;
+}
+
+#exitPopupButton:hover {
+  background-color: #7cd1f9;
+}
+
+#basicRules {
+  font-weight: 600;
+}

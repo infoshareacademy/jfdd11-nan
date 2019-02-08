@@ -18,12 +18,31 @@
             <div id="score" class="metric">parcels delivered:<span id="points">0</span></div>
             <div class="timer metric"><span id="countdown">Get Ready!</span></div>
             <div class="metric" id="scoreBoard">Score Board<span id="names"></span>
+                <ol id="listOl"></ol>
             </div>
         </div>
 
         <div id="board" class="board"></div>
 
     </div>
+
+        <div id="popup">
+            <p id="startPopupTitle">
+                Thank you for subscribing!
+               
+            </p>
+            <p id="basicRules">Basic rules of the game:</p>
+            <p>
+                You are a courier, deliver as many packages as you can in 60 seconds!
+            </p>
+
+            <button class="startPopupButtons" id="startPopupButton">PLAY</button>
+            <button class="startPopupButtons" id="exitPopupButton">EXIT</button>
+
+        </div>
+
+
+   
     <audio id="treeCrash">
         <source src="/audio/stop.flac" type="audio/ogg">
         <source src="/audio/stop.flac" type="audio/mpeg">

@@ -20,11 +20,12 @@ const getScoresPromise = () => fetch(fetchAddress).then(
 function getScores() {
     getScoresPromise().then(scores => {
           
-                    const boardBlock = document.getElementById('scoreBoard');
-                boardBlock.innerHTML = 'Score Board:';
+                    const boardBlock = document.getElementById('listOl');
+                boardBlock.innerHTML = '';
                     Object.keys(scores).map(key => ({ points: scores[key], nick: key })).sort((a, b) => b.points - a.points).slice(0,9).forEach(player => {
+                       
                         const list = document.createElement('li');
-                    list.textContent = player.nick + ':' + player.points;
+                   list.textContent = player.nick + ': ' + player.points;
                     boardBlock.appendChild(list);
                     })
                 
@@ -36,14 +37,16 @@ getScores();
 makeBoard(board, gridSize);
 addingHouses(6);
 addingTrees(10)
+startGamePopupShow();
 
-function startGame() {
+function resetGame() {
   calls = 0;
   timeLeft = 60;
   game.packages = 0;
   isRuning = !isRuning;
 }
 addingTruck();
+
 courierCall();
 packagePickUp();
 
