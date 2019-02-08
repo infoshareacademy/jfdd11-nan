@@ -13,8 +13,8 @@ const game = {
 let scoreStorage = {};
 const fetchAddress = 'https://best-zupa-in-my-life.firebaseio.com/.json';
 const getScoresPromise = () => fetch(fetchAddress).then(
-    response => response.json()
-    ).then(scores => scores === null ? {} : scores)
+  response => response.json()
+).then(scores => scores === null ? {} : scores)
 
 function getScores() {
     getScoresPromise().then(scores => {
@@ -35,16 +35,27 @@ getScores();
 //scoreBoard
 makeBoard(board, gridSize);
 addingHouses(6);
-addingTrees(10)
+addingTrees(10);
 startGamePopupShow();
 
 function resetGame() {
+  let allCells = document.querySelectorAll('.cell');
   timeLeft = 60;
   game.packages = 0;
   isRuning = !isRuning;
-}
-addingTruck();
+  let allCellsArray = Array.from(allCells)
+  allCellsArray.map(cell => {
+    cell.classList = "cell";
+  })
+  let packageCell = document.querySelector('.new_package').parentElement;
+  packageCell.firstChild.remove();
 
+  addingHouses(6);
+  addingTrees(10);
+  courierCall();
+}
+
+addingTruck();
 courierCall();
 packagePickUp();
 
