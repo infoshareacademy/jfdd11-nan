@@ -144,7 +144,7 @@ function startGame() {
         document.getElementById('start').textContent = 'Play again';
         clearInterval(countDown);
         winOrGameOver();
-        startGame();
+        resetGame();
       };
     }, 1000);
   } else {
@@ -161,34 +161,31 @@ document.getElementById('start').addEventListener('click', startGame)
 
 //end game function
 function winOrGameOver() {
-  let score = game.packages;
-  let nick = 'noname';
-  let text = "Your score is : " + score;
-  if (score === 0) {
-    swal("Oops!", "Try again!", "error");
-  } else {
-    swal({
-        text,
-        content: {
-          element: "input",
-          attributes: {
-            placeholder: "Enter your name",
-            type: "text",
-            onchange: (event) => nick = event.target.value
-          },
-        },
-        button: {
-          text: "OK",
+    let score = game.packages;
+    let nick = 'noname';
+    let text = "Your score is : " + score;
+    if (score === 0) {
+        swal("Oops!", "Try again!", "error");
+    } else {
+        swal({
+            text,
+            content: {
+                element: "input",
+                attributes: {
+                    placeholder: "Enter your name",
+                    type: "text",
+                    onchange: (event) => nick = event.target.value
+                },
+            },
+            button: {
+                text: "OK",
 
-        },
-      })
-      .then(() => {
-        getScoresPromise().then(scores => {
-          scores[nick] = score;
-          fetch('https://mail-collector-d2e51.firebaseio.com/scores/nan.json', {
-            method: 'put',
-            body: JSON.stringify(scores)
-          }).then(() => getScores())
+            },
+        })
+            .then(() => {
+                getScoresPromise().then(scores => {
+                    scores[nick] = score;
+                    fetch(fetchAddress, { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
 
         })
 
