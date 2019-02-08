@@ -47,7 +47,7 @@
   align-items: center;
 }
 
-#start {
+.start {
   text-align: center;
   cursor: pointer;
   color: #fff;
@@ -59,12 +59,13 @@
   width: 100%;
 }
 
-#start:hover {
+.start:hover {
   background-color: orangered;
 }
 
-#start:active {
-  background-color: orangered;
+.start:active {
+  background-color:orangered;
+
   transform: translateY(4px);
 }
 
@@ -84,7 +85,7 @@
   padding: 15px 25px;
 }
 
-#board {
+.board {
   background-image: linear-gradient(to bottom right, rgb(0, 167, 0), rgb(30, 105, 0));
   position: relative;
 }
@@ -215,7 +216,7 @@
   text-align: center;
   display: none;
   border-radius: 5px;
-  
+  color: rgba(0,0,0,.64);
   font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
 }
 

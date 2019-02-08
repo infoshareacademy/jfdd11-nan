@@ -14,14 +14,15 @@
 
     <div id="game" class="game">
         <div id="controlPanel">
-            <button type="button" id="start" onclick="refreshPage()">Start Game</button>
+            <button type="button" id="start" class="start" onclick="refreshPage()">Start Game</button>
             <div id="score" class="metric">parcels delivered:<span id="points">0</span></div>
             <div class="timer metric"><span id="countdown">Get Ready!</span></div>
             <div class="metric" id="scoreBoard">Score Board<span id="names"></span>
             </div>
         </div>
 
-        <div id="board"></div>
+        <div id="board" class="board"></div>
+
     </div>
 
         <div id="popup">
@@ -44,6 +45,21 @@
     <audio id="treeCrash">
         <source src="/audio/stop.flac" type="audio/ogg">
         <source src="/audio/stop.flac" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="startEngine">
+        <source src="/audio/start_engine.flac" type="audio/ogg">
+        <source src="/audio/start_engine.flac" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="pickUpPackage">
+        <source src="/audio/pickup_package.flac" type="audio/ogg">
+        <source src="/audio/pickup_package.flac" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="deliveryPackage">
+        <source src="/audio/delivery.flac" type="audio/ogg">
+        <source src="/audio/delivery.flac" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
