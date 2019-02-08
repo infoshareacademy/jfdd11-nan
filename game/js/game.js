@@ -9,6 +9,7 @@ const gridSize = 10;
 const game = {
     packages: 0
 }
+let calls = 0;
 //scoreBoard
 let scoreStorage = {};
 const fetchAddress = 'https://best-zupa-in-my-life.firebaseio.com/.json';
@@ -51,6 +52,7 @@ addingTrees(10);
 startGamePopupShow();
 
 function resetGame() {
+  calls = 0;
   let allCells = document.querySelectorAll('.cell');
   timeLeft = 60;
   game.packages = 0;
