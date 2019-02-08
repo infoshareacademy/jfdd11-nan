@@ -183,11 +183,11 @@ function winOrGameOver() {
             },
         })
             .then(() => {
-                getScoresPromise().then(scores => {
-                    scores[nick] = score;
-                    fetch(fetchAddress, { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
+                
+              const result = { nick: nick, points: score }
 
-        })
+              addScore(result).then(refreshScores)
+
 
         // game.scoreStorage = JSON.parse(window.localStorage.getItem('score'));
         // game.scores[nick] = score;
