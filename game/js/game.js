@@ -9,6 +9,7 @@ const gridSize = 10;
 const game = {
   packages: 0
 }
+let calls = 0;
 //scoreBoard
 let scoreStorage = {};
 const fetchAddress = 'https://best-zupa-in-my-life.firebaseio.com/.json';
@@ -37,6 +38,7 @@ addingHouses(6);
 addingTrees(10)
 
 function startGame() {
+  calls = 0;
   timeLeft = 60;
   game.packages = 0;
   isRuning = !isRuning;
