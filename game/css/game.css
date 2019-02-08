@@ -206,6 +206,9 @@ body {
     transform: translate3d(4px, 0, 0);
   }
 }
+ol{
+  text-align: start;
+}
 
 .metric {
   background: rgba(255, 255, 255, 0.1);
