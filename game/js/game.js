@@ -47,32 +47,44 @@ refreshScores();
 //scoreBoard
 makeBoard(board, gridSize);
 addingHouses(6);
-addingTrees(10)
+addingTrees(10);
 startGamePopupShow();
 
 function resetGame() {
-    timeLeft = 60;
-    game.packages = 0;
-    isRuning = !isRuning;
-}
-addingTruck();
+  let allCells = document.querySelectorAll('.cell');
+  timeLeft = 60;
+  game.packages = 0;
+  isRuning = !isRuning;
+  let allCellsArray = Array.from(allCells)
+  allCellsArray.map(cell => {
+    cell.classList = "cell";
+  })
+  let packageCell = document.querySelector('.new_package').parentElement;
+  packageCell.firstChild.remove();
 
+  addingHouses(6);
+  addingTrees(10);
+  courierCall();
+}
+
+addingTruck();
 courierCall();
 packagePickUp();
 
 
 window.addEventListener('keydown', function (event) {
-    const truckNode = document.querySelector('.cell .truck').parentElement;
-    if (event.code === 'ArrowRight') {
-        const targetNode = truckNode.nextElementSibling;
-        if (targetNode === null) {
-            return;
-        }
-        if (checkBarriers(targetNode)) {
-            truckMove(targetNode, 0);
-        }
-        packagePickUp();
-        deliveryPackage()
+  const truckNode = document.querySelector('.cell .truck').parentElement;
+  if (!isRuning){return}
+  if (event.code === 'ArrowRight') {
+    const targetNode = truckNode.nextElementSibling;
+    if (targetNode === null) {
+      return;
+    }
+    if (checkBarriers(targetNode)) {
+      truckMove(targetNode, 0);
+    }
+    packagePickUp();
+    deliveryPackage();
     }
 
     if (event.code === 'ArrowLeft') {

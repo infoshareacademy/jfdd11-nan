@@ -43,7 +43,7 @@ function addingHouses(x) {
 
 function addingTrees(x) {
   const arrTree = Array.from(document.querySelectorAll('.cell:not(.house)'))
-    .filter((item, index) => index > 0);
+    .filter((item, index) => index > 1);
 
   for (let i = 0; i < x; i++) {
     let randomPackageIndex = Math.floor(Math.random() * arrTree.length);
@@ -145,12 +145,20 @@ function startGame() {
         clearInterval(countDown);
         winOrGameOver();
         resetGame();
+        
       };
     }, 1000);
-  } else {
+
+  } 
+  else if(!isRuning && timeLeft <= 0){
+    addingHouses(6);
+  addingTrees(10);
+  }
+  else {
     clearInterval(countDown);
     document.getElementById('start').textContent = 'Resume';
-  }}
+  }
+}
 
 let timeLeft = 60;
 let countDown = 0;
