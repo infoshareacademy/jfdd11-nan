@@ -43,7 +43,7 @@ function addingHouses(x) {
 
 function addingTrees(x) {
   const arrTree = Array.from(document.querySelectorAll('.cell:not(.house)'))
-    .filter((item, index) => index > 0);
+    .filter((item, index) => index > 1);
 
   for (let i = 0; i < x; i++) {
     let randomPackageIndex = Math.floor(Math.random() * arrTree.length);
@@ -145,12 +145,20 @@ function startGame() {
         clearInterval(countDown);
         winOrGameOver();
         resetGame();
+        
       };
     }, 1000);
-  } else {
+
+  } 
+  else if(!isRuning && timeLeft <= 0){
+    addingHouses(6);
+  addingTrees(10);
+  }
+  else {
     clearInterval(countDown);
     document.getElementById('start').textContent = 'Resume';
-  }}
+  }
+}
 
 let timeLeft = 60;
 let countDown = 0;
@@ -161,31 +169,31 @@ document.getElementById('start').addEventListener('click', startGame)
 
 //end game function
 function winOrGameOver() {
-    let score = game.packages;
-    let nick = 'noname';
-    let text = "Your score is : " + score;
-    if (score === 0) {
-        swal("Oops!", "Try again!", "error");
-    } else {
-        swal({
-            text,
-            content: {
-                element: "input",
-                attributes: {
-                    placeholder: "Enter your name",
-                    type: "text",
-                    onchange: (event) => nick = event.target.value
-                },
-            },
-            button: {
-                text: "OK",
+  let score = game.packages;
+  let nick = 'noname';
+  let text = "Your score is : " + score;
+  if (score === 0) {
+    swal("Oops!", "Try again!", "error");
+  } else {
+    swal({
+      text,
+      content: {
+        element: "input",
+        attributes: {
+          placeholder: "Enter your name",
+          type: "text",
+          onchange: (event) => nick = event.target.value
+        },
+      },
+      button: {
+        text: "OK",
 
-            },
-        })
-            .then(() => {
-                getScoresPromise().then(scores => {
-                    scores[nick] = score;
-                    fetch(fetchAddress, { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
+      },
+    })
+      .then(() => {
+        getScoresPromise().then(scores => {
+          scores[nick] = score;
+          fetch(fetchAddress, { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
 
         })
 
