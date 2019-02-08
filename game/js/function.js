@@ -1,70 +1,73 @@
 function makeBoard(target, size) {
-    for (let y = 0; y < size; y += 1) {
-        let rowNode = createNode("row");
+  for (let y = 0; y < size; y += 1) {
+    let rowNode = createNode("row");
 
-        for (let x = 0; x < size; x += 1) {
-            let cellNode = createNode("cell");
+    for (let x = 0; x < size; x += 1) {
+      let cellNode = createNode("cell");
 
-            rowNode.appendChild(cellNode);
-        }
-
-        target.appendChild(rowNode);
+      rowNode.appendChild(cellNode);
     }
-    const truckPhantom = document.createElement('div');
-    truckPhantom.classList.add('truckPhantom');
-    target.appendChild(truckPhantom);
+
+    target.appendChild(rowNode);
+  }
+  const truckPhantom = document.createElement('div');
+  truckPhantom.classList.add('truckPhantom');
+  target.appendChild(truckPhantom);
 }
 
 function createNode(className) {
-    const node = document.createElement("div");
-    node.classList.add(className);
+  const node = document.createElement("div");
+  node.classList.add(className);
 
-    return node;
+  return node;
 }
 
 function getIndexWithinParent(element) {
-    return Array.from(element.parentNode.children).indexOf(element);
+  return Array.from(element.parentNode.children).indexOf(element);
 }
 
 function getNextRow(element) {
-    return element.parentElement.nextElementSibling
+  return element.parentElement.nextElementSibling
 }
 
 function addingHouses(x) {
-    const arrHouse = Array.from(document.querySelectorAll('.cell'))
-        .filter((item, index) => index > 0);
-    for (let i = 0; i < x; i++) {
-        let randomPackageIndex = Math.floor(Math.random() * arrHouse.length);
-        arrHouse[randomPackageIndex].classList.add('house');
+  const arrHouse = Array.from(document.querySelectorAll('.cell'))
+    .filter((item, index) => index > 0);
+  for (let i = 0; i < x; i++) {
+    let randomPackageIndex = Math.floor(Math.random() * arrHouse.length);
+    arrHouse[randomPackageIndex].classList.add('house');
 
-        arrHouse.splice(randomPackageIndex, 1);
-    }
+    arrHouse.splice(randomPackageIndex, 1);
+  }
 }
 
 function addingTrees(x) {
-    const arrTree = Array.from(document.querySelectorAll('.cell:not(.house)'))
-        .filter((item, index) => index > 0);
+  const arrTree = Array.from(document.querySelectorAll('.cell:not(.house)'))
+    .filter((item, index) => index > 0);
 
-    for (let i = 0; i < x; i++) {
-        let randomPackageIndex = Math.floor(Math.random() * arrTree.length);
-        arrTree[randomPackageIndex].classList.add('tree');
+  for (let i = 0; i < x; i++) {
+    let randomPackageIndex = Math.floor(Math.random() * arrTree.length);
+    arrTree[randomPackageIndex].classList.add('tree');
 
-        arrTree.splice(randomPackageIndex, 1);
-    }
+    arrTree.splice(randomPackageIndex, 1);
+  }
 }
 
-function crashTreeAudio() { 
-  crash.play(); 
-} 
-function startEngineAudio() { 
-  startEngine.play(); 
-} 
-function pickUpPackageAudio() { 
-  pickUpPackage.play(); 
-} 
-function deliveryPackageAudio() { 
-  packageDelivered.play(); 
-} 
+function crashTreeAudio() {
+  crash.play();
+}
+
+function startEngineAudio() {
+  startEngine.play();
+}
+
+function pickUpPackageAudio() {
+  pickUpPackage.play();
+}
+
+function deliveryPackageAudio() {
+  packageDelivered.play();
+}
 
 function courierCall() {
   const truck = document.querySelector('.truck').parentElement;
@@ -77,17 +80,24 @@ function courierCall() {
 }
 
 function packagePickUp() {
-    const package = document.querySelector('.new_package');
-    const isTruck = document.querySelector('.truck');
-    const isTruckPhantom = document.querySelector('.truckPhantom');
-
+  const package = document.querySelector('.new_package');
+  const isTruck = document.querySelector('.truck');
+  const isTruckPhantom = document.querySelector('.truckPhantom');
+  const tracken = document.querySelector('.tracken-man');
   if (package === isTruck.previousElementSibling) {
     pickUpPackageAudio();
     deliveryPoint();
     isTruck.appendChild(package);
     isTruckPhantom.appendChild(package);
 
-    }
+  }
+  if (tracken && tracken === isTruck.previousElementSibling) {
+    pickUpPackageAudio();
+    deliveryPoint();
+    isTruck.appendChild(tracken);
+    isTruckPhantom.appendChild(tracken);
+
+  }
 }
 
 function deliveryPackage() {
@@ -104,7 +114,7 @@ function deliveryPackage() {
     houses.forEach(element => {
       element.classList.remove('delivery-point');
     });
-
+    timeLeft += 1;
     courierCall();
   }
 }
@@ -121,18 +131,32 @@ function deliveryPoint() {
 };
 
 let timeLeft = 60;
-let countDown = setInterval(function () {
-    timeLeft -= 1;
-    document.getElementById('countdown').textContent = timeLeft + ' seconds left';
-    if (timeLeft <= 0) {
+let countDown = 0;
+let isRuning = false;
+document.getElementById('start').addEventListener('click', function () {
+  isRuning = !isRuning;
+  if (isRuning) {
+    //startGame();
+    document.querySelector('#points').textContent = game.packages;
+    countDown = setInterval(function () {
+      timeLeft -= 1;
+      document.getElementById('start').textContent = 'Pause';
+      document.getElementById('countdown').textContent = timeLeft + ' seconds left';
+      if (timeLeft <= 0) {
         document.getElementById('countdown').textContent = ' Time is up!';
+        document.getElementById('start').textContent = 'Play again';
         clearInterval(countDown);
         winOrGameOver();
-    };
-    if (timeLeft <= 59) {
-        document.getElementById('start').textContent = 'Reload Game';
-    }
-}, 1000)
+        startGame();
+      };
+    }, 1000);
+  } else {
+    clearInterval(countDown);
+    document.getElementById('start').textContent = 'Resume';
+  }
+})
+
+
 //end game function
 function winOrGameOver() {
     let score = game.packages;
@@ -161,29 +185,28 @@ function winOrGameOver() {
                     scores[nick] = score;
                     fetch(fetchAddress, { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
 
-                })
+        })
 
-                // game.scoreStorage = JSON.parse(window.localStorage.getItem('score'));
-                // game.scores[nick] = score;
-                // window.localStorage.setItem('score', JSON.stringify(game.scoreStorage));
-            }
-            )
+        // game.scoreStorage = JSON.parse(window.localStorage.getItem('score'));
+        // game.scores[nick] = score;
+        // window.localStorage.setItem('score', JSON.stringify(game.scoreStorage));
+      })
 
-    }
+  }
 
 }
 
 
 //added truck
 function addingTruck() {
-    const truckBase = document.querySelector('.cell');
-    const truck = document.createElement('div');
-    truck.classList.add("truck");
-    truckBase.appendChild(truck);
+  const truckBase = document.querySelector('.cell');
+  const truck = document.createElement('div');
+  truck.classList.add("truck");
+  truckBase.appendChild(truck);
 }
 
 function getIndex(target) {
-    return Array.from(target.parentElement.children).indexOf(target);
+  return Array.from(target.parentElement.children).indexOf(target);
 }
 //truck move function
 function truckMove(target, deg) {
@@ -199,7 +222,7 @@ function truckMove(target, deg) {
 }
 //play button
 function refreshPage() {
-    window.location.reload();
+  window.location.reload();
 }
 
 //check barriers function
@@ -208,10 +231,21 @@ function checkBarriers(target) {
   let checkField = barriers.includes(target);
   if (checkField) {
     crashTreeAudio();
+    timeLeft -= 4;
     target.classList.add('tree-shake');
-    setTimeout(()=>{
+    setTimeout(() => {
       target.classList.remove('tree-shake');
-    },1000)
+    }, 1000)
   }
   return !checkField;
+}
+
+function trackenApear() {
+  const emptyCellsNode = Array.from(document.querySelectorAll('.cell:not(.tree):not(.house)')).filter((cell) => cell.hasChildNodes.length === 0);
+  let randomTrackenIndex = Math.floor(Math.random() * emptyCellsNode.length);
+  const trackenNode = document.createElement('div');
+  trackenNode.classList.add('tracken-man');
+  emptyCellsNode[randomTrackenIndex].appendChild(trackenNode);
+
+  console.log(emptyCellsNode);
 }

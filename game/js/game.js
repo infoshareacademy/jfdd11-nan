@@ -1,12 +1,13 @@
 "use strict";
 const board = document.querySelector("#board");
 const crash = document.querySelector('#treeCrash');
+const startCells = document.querySelector('.cell');
 const startEngine = document.querySelector('#startEngine');
 const pickUpPackage = document.querySelector('#pickUpPackage');
 const packageDelivered = document.querySelector('#deliveryPackage');
 const gridSize = 10;
 const game = {
-    packages: 0
+  packages: 0
 }
 //scoreBoard
 let scoreStorage = {};
@@ -34,62 +35,68 @@ getScores();
 makeBoard(board, gridSize);
 addingHouses(6);
 addingTrees(10)
+
+function startGame() {
+  timeLeft = 60;
+  game.packages = 0;
+  isRuning = !isRuning;
+}
 addingTruck();
 courierCall();
 packagePickUp();
 
 
 window.addEventListener('keydown', function (event) {
-    const truckNode = document.querySelector('.cell .truck').parentElement;
-    if (event.code === 'ArrowRight') {
-        const targetNode = truckNode.nextElementSibling;
-        if (targetNode === null) {
-            return;
-        }
-        if (checkBarriers(targetNode)) {
-            truckMove(targetNode, 0);
-        }
-        packagePickUp();
-        deliveryPackage()
+  const truckNode = document.querySelector('.cell .truck').parentElement;
+  if (event.code === 'ArrowRight') {
+    const targetNode = truckNode.nextElementSibling;
+    if (targetNode === null) {
+      return;
     }
+    if (checkBarriers(targetNode)) {
+      truckMove(targetNode, 0);
+    }
+    packagePickUp();
+    deliveryPackage()
+  }
 
-    if (event.code === 'ArrowLeft') {
-        const targetNode = truckNode.previousElementSibling;
-        if (targetNode === null) {
-            return;
-        }
-        if (checkBarriers(targetNode)) {
-            truckMove(targetNode, 180);
-        }
-        packagePickUp();
-        deliveryPackage();
+  if (event.code === 'ArrowLeft') {
+    const targetNode = truckNode.previousElementSibling;
+    if (targetNode === null) {
+      return;
     }
-    if (event.code === 'ArrowUp') {
-        const truckNodeIndex = Array.from(truckNode.parentElement.children).indexOf(truckNode);
-        const truckRow = truckNode.parentElement;
-        const targetRow = truckRow.previousElementSibling;
-        if (targetRow === null) {
-            return;
-        }
-        const targetNode = targetRow.children[truckNodeIndex];
-        if (checkBarriers(targetNode)) {
-            truckMove(targetNode, 270);
-        }
-        packagePickUp();
-        deliveryPackage();
+    if (checkBarriers(targetNode)) {
+      truckMove(targetNode, 180);
     }
-    if (event.code === 'ArrowDown') {
-        const truckNodeIndex = Array.from(truckNode.parentElement.children).indexOf(truckNode);
-        const truckRow = truckNode.parentElement;
-        const targetRow = truckRow.nextElementSibling;
-        if (targetRow === null || targetRow.classList.contains('truckPhantom')) {
-            return;
-        }
-        const targetNode = targetRow.children[truckNodeIndex];
-        if (checkBarriers(targetNode)) {
-            truckMove(targetNode, 90);
-        }
-        packagePickUp();
-        deliveryPackage();
+    packagePickUp();
+    deliveryPackage();
+  }
+  if (event.code === 'ArrowUp') {
+    const truckNodeIndex = Array.from(truckNode.parentElement.children).indexOf(truckNode);
+    const truckRow = truckNode.parentElement;
+    const targetRow = truckRow.previousElementSibling;
+    if (targetRow === null) {
+      return;
     }
+    const targetNode = targetRow.children[truckNodeIndex];
+    if (checkBarriers(targetNode)) {
+      truckMove(targetNode, 270);
+    }
+    packagePickUp();
+    deliveryPackage();
+  }
+  if (event.code === 'ArrowDown') {
+    const truckNodeIndex = Array.from(truckNode.parentElement.children).indexOf(truckNode);
+    const truckRow = truckNode.parentElement;
+    const targetRow = truckRow.nextElementSibling;
+    if (targetRow === null || targetRow.classList.contains('truckPhantom')) {
+      return;
+    }
+    const targetNode = targetRow.children[truckNodeIndex];
+    if (checkBarriers(targetNode)) {
+      truckMove(targetNode, 90);
+    }
+    packagePickUp();
+    deliveryPackage();
+  }
 })

@@ -1,5 +1,14 @@
 * {
   box-sizing: border-box;
+<<<<<<< HEAD
+=======
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+>>>>>>> f21fa07943f3dd42f69ca5344e685d0085eb08f7
 }
 
 .game {
@@ -17,6 +26,19 @@
   transform: rotate(0deg);
 }
 
+<<<<<<< HEAD
+=======
+.tracken-man {
+  content: url('/img/tracken\ \(1\).svg');
+  height: 80%;
+  transform: rotate(0deg);
+}
+
+.row {
+  display: flex;
+}
+
+>>>>>>> f21fa07943f3dd42f69ca5344e685d0085eb08f7
 .cell {
   width: 5vw;
   height: 5vw;
@@ -61,6 +83,10 @@
 }
 
 .start:active {
+<<<<<<< HEAD
+=======
+  background-color: orangered;
+>>>>>>> f21fa07943f3dd42f69ca5344e685d0085eb08f7
   transform: translateY(4px);
 }
 
@@ -73,9 +99,13 @@
   padding: 15px 25px;
 }
 
+<<<<<<< HEAD
 .metric {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+=======
+#score {
+>>>>>>> f21fa07943f3dd42f69ca5344e685d0085eb08f7
   text-align: center;
   font-size: 30px;
   margin-bottom: 30px;
