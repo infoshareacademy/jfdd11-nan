@@ -1,5 +1,14 @@
 * {
   box-sizing: border-box;
+<<<<<<< HEAD
+=======
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+>>>>>>> f21fa07943f3dd42f69ca5344e685d0085eb08f7
 }
 
 .game {
@@ -14,6 +23,12 @@
 .new_package {
   content: url('../img/package\ \(1\).png');
   height: 50%;
+  transform: rotate(0deg);
+}
+
+.tracken-man {
+  content: url('/img/tracken\ \(1\).svg');
+  height: 80%;
   transform: rotate(0deg);
 }
 
@@ -64,8 +79,7 @@
 }
 
 .start:active {
-  background-color:orangered;
-
+  background-color: orangered;
   transform: translateY(4px);
 }
 
