@@ -11,27 +11,24 @@ const game = {
 }
 //scoreBoard
 let scoreStorage = {};
-
-const getScoresPromise = () => fetch('https://mail-collector-d2e51.firebaseio.com/scores/nan.json').then(
-  response => response.json()
-).then(scores => scores === null ? {} : scores)
+const fetchAddress = 'https://best-zupa-in-my-life.firebaseio.com/.json';
+const getScoresPromise = () => fetch(fetchAddress).then(
+    response => response.json()
+    ).then(scores => scores === null ? {} : scores)
 
 function getScores() {
-  getScoresPromise().then(scores => {
-
-    const boardBlock = document.getElementById('scoreBoard');
-    boardBlock.innerHTML = '';
-    Object.keys(scores).map(key => ({
-      points: scores[key],
-      nick: key
-    })).sort((a, b) => b.points - a.points).slice(0, 9).forEach(player => {
-      const list = document.createElement('li');
-      list.textContent = player.nick + ':' + player.points;
-      boardBlock.appendChild(list);
-    })
-
-  })
-}
+    getScoresPromise().then(scores => {
+          
+                    const boardBlock = document.getElementById('scoreBoard');
+                boardBlock.innerHTML = 'Score Board:';
+                    Object.keys(scores).map(key => ({ points: scores[key], nick: key })).sort((a, b) => b.points - a.points).slice(0,9).forEach(player => {
+                        const list = document.createElement('li');
+                    list.textContent = player.nick + ':' + player.points;
+                    boardBlock.appendChild(list);
+                    })
+                
+        })
+       }
 
 getScores();
 //scoreBoard
