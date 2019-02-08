@@ -130,10 +130,7 @@ function deliveryPoint() {
 
 };
 
-let timeLeft = 60;
-let countDown = 0;
-let isRuning = false;
-document.getElementById('start').addEventListener('click', function () {
+function startGame() {
   isRuning = !isRuning;
   if (isRuning) {
     //startGame();
@@ -147,14 +144,19 @@ document.getElementById('start').addEventListener('click', function () {
         document.getElementById('start').textContent = 'Play again';
         clearInterval(countDown);
         winOrGameOver();
-        startGame();
+        resetGame();
       };
     }, 1000);
   } else {
     clearInterval(countDown);
     document.getElementById('start').textContent = 'Resume';
-  }
-})
+  }}
+
+let timeLeft = 60;
+let countDown = 0;
+let isRuning = false;
+document.getElementById('start').addEventListener('click', startGame)
+
 
 
 //end game function
@@ -237,8 +239,34 @@ function checkBarriers(target) {
       target.classList.remove('tree-shake');
     }, 1000)
   }
+
   return !checkField;
+
 }
+
+function startGamePopupShow() {
+  const popup = document.querySelector('#popup');
+  const container = document.querySelector('.game');
+
+  container.classList.add('blured');
+  popup.style.display = 'block';
+}
+
+function startGamePopupHide() {
+  const popup = document.querySelector('#popup');
+  document.querySelector('.game').classList.remove('blured');
+  popup.style.display = 'none';
+}
+document.querySelector('#startPopupButton').addEventListener('click', function () {
+  startGamePopupHide();
+  startGame();
+
+});
+
+document.querySelector('#exitPopupButton').addEventListener('click', function () {
+  startGamePopupHide();
+
+});
 
 function trackenApear() {
   const emptyCellsNode = Array.from(document.querySelectorAll('.cell:not(.tree):not(.house)')).filter((cell) => cell.hasChildNodes.length === 0);

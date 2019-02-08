@@ -35,13 +35,15 @@ getScores();
 makeBoard(board, gridSize);
 addingHouses(6);
 addingTrees(10)
+startGamePopupShow();
 
-function startGame() {
+function resetGame() {
   timeLeft = 60;
   game.packages = 0;
   isRuning = !isRuning;
 }
 addingTruck();
+
 courierCall();
 packagePickUp();
 
