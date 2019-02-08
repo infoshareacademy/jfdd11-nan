@@ -19,11 +19,12 @@ const getScoresPromise = () => fetch(fetchAddress).then(
 function getScores() {
     getScoresPromise().then(scores => {
           
-                    const boardBlock = document.getElementById('scoreBoard');
-                boardBlock.innerHTML = 'Score Board:';
+                    const boardBlock = document.getElementById('listOl');
+                boardBlock.innerHTML = '';
                     Object.keys(scores).map(key => ({ points: scores[key], nick: key })).sort((a, b) => b.points - a.points).slice(0,9).forEach(player => {
+                       
                         const list = document.createElement('li');
-                    list.textContent = player.nick + ':' + player.points;
+                   list.textContent = player.nick + ': ' + player.points;
                     boardBlock.appendChild(list);
                     })
                 
