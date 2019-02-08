@@ -51,6 +51,7 @@ packagePickUp();
 
 window.addEventListener('keydown', function (event) {
   const truckNode = document.querySelector('.cell .truck').parentElement;
+  if (!isRuning){return}
   if (event.code === 'ArrowRight') {
     const targetNode = truckNode.nextElementSibling;
     if (targetNode === null) {
