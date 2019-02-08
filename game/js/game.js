@@ -40,12 +40,8 @@ addingHouses(6);
 addingTrees(10)
 
 function startGame() {
- // addingTruck();
-  //startCells.classList('.cell');
   timeLeft = 60;
-  countDown = 0;
   game.packages = 0;
-  document.querySelector('#points').textContent = game.packages;
   isRuning = !isRuning;
 }
 addingTruck();
