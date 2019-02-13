@@ -14,10 +14,10 @@ body {
 }
 
 .game.blured {
-  filter: blur(5px);}
-  
-.row, 
-.game {
+  filter: blur(2px);
+}
+
+.row, .game {
   display: flex;
 }
 
@@ -74,9 +74,7 @@ body {
   width: 100%;
 }
 
-.start:hover, 
-.start, 
-.start:active {
+.start:hover, .start, .start:active {
   background-color: orangered;
 }
 
@@ -207,7 +205,8 @@ body {
     transform: translate3d(4px, 0, 0);
   }
 }
-ol{
+
+ol {
   text-align: start;
 }
 
@@ -229,12 +228,11 @@ ol{
   text-align: center;
   display: none;
   border-radius: 5px;
-  color: rgba(0,0,0,.64);
+  color: rgba(0, 0, 0, .64);
   font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
 }
 
-#startPopupTitle{
-
+#startPopupTitle {
   font-weight: 700;
   font-size: 22px;
 }
