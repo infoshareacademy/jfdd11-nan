@@ -28,7 +28,7 @@ body {
 }
 
 .tracken-man {
-  content: url('/img/tracken\ \(1\).svg');
+  content: url('/img/trackenLogo.svg');
   height: 80%;
   transform: rotate(0deg);
 }
