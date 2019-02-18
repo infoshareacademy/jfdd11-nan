@@ -70,12 +70,16 @@ function deliveryPackageAudio() {
 }
 
 function courierCall() {
+  calls += 1;
   const truck = document.querySelector('.truck').parentElement;
   const houses = Array.from(document.querySelectorAll('.house')).filter((house) => house != truck);
   let randomPackage = Math.floor(Math.random() * houses.length);
   const pack = document.createElement('div');
   pack.classList.add('new_package');
   houses[randomPackage].appendChild(pack);
+  if (calls%5===0){
+    trackenApear();
+  }
 
 }
 
@@ -84,7 +88,7 @@ function packagePickUp() {
   const isTruck = document.querySelector('.truck');
   const isTruckPhantom = document.querySelector('.truckPhantom');
   const tracken = document.querySelector('.tracken-man');
-  if (package === isTruck.previousElementSibling) {
+  if (isTruckPhantom.childNodes.length<=0 && package === isTruck.previousElementSibling) {
     pickUpPackageAudio();
     deliveryPoint();
     isTruck.appendChild(package);
@@ -96,27 +100,37 @@ function packagePickUp() {
     deliveryPoint();
     isTruck.appendChild(tracken);
     isTruckPhantom.appendChild(tracken);
-
+    package.remove();
   }
 }
 
 function deliveryPackage() {
 
   const isTruck = document.querySelector('.truck');
+  const truckPhantom = document.querySelector('.truckPhantom').firstChild;
   const package = document.querySelector('.new_package');
   const deliveryHouse = document.querySelector('.delivery-point');
   if (isTruck.parentElement === deliveryHouse) {
-    game.packages += 1;
-    deliveryPackageAudio();
-    document.querySelector('#points').textContent = game.packages;
-    package.remove();
+    if (truckPhantom === package){
+      game.packages += 1;
+      deliveryPackageAudio();
+      document.querySelector('#points').textContent = game.packages;
+      package.remove();
+      timeLeft += 1;
+    } else {
+      game.packages += 10;
+      deliveryPackageAudio();
+      document.querySelector('#points').textContent = game.packages;
+      truckPhantom.remove();
+      timeLeft += 10;
+    }
     const houses = document.querySelectorAll('.house');
     houses.forEach(element => {
       element.classList.remove('delivery-point');
     });
-    timeLeft += 1;
     courierCall();
   }
+  
 }
 
 function deliveryPoint() {
@@ -169,33 +183,33 @@ document.getElementById('start').addEventListener('click', startGame)
 
 //end game function
 function winOrGameOver() {
-  let score = game.packages;
-  let nick = 'noname';
-  let text = "Your score is : " + score;
-  if (score === 0) {
-    swal("Oops!", "Try again!", "error");
-  } else {
-    swal({
-      text,
-      content: {
-        element: "input",
-        attributes: {
-          placeholder: "Enter your name",
-          type: "text",
-          onchange: (event) => nick = event.target.value
-        },
-      },
-      button: {
-        text: "OK",
+    let score = game.packages;
+    let nick = 'noname';
+    let text = "Your score is : " + score;
+    if (score === 0) {
+        swal("Oops!", "Try again!", "error");
+    } else {
+        swal({
+            text,
+            content: {
+                element: "input",
+                attributes: {
+                    placeholder: "Enter your name",
+                    type: "text",
+                    onchange: (event) => nick = event.target.value
+                },
+            },
+            button: {
+                text: "OK",
 
-      },
-    })
-      .then(() => {
-        getScoresPromise().then(scores => {
-          scores[nick] = score;
-          fetch(fetchAddress, { method: 'put', body: JSON.stringify(scores) }).then(() => getScores())
-
+            },
         })
+            .then(() => {
+                
+              const result = { nick: nick, points: score }
+
+              addScore(result).then(refreshScores)
+
 
         // game.scoreStorage = JSON.parse(window.localStorage.getItem('score'));
         // game.scores[nick] = score;
@@ -277,11 +291,10 @@ document.querySelector('#exitPopupButton').addEventListener('click', function ()
 });
 
 function trackenApear() {
+  
   const emptyCellsNode = Array.from(document.querySelectorAll('.cell:not(.tree):not(.house)')).filter((cell) => cell.hasChildNodes.length === 0);
   let randomTrackenIndex = Math.floor(Math.random() * emptyCellsNode.length);
   const trackenNode = document.createElement('div');
   trackenNode.classList.add('tracken-man');
   emptyCellsNode[randomTrackenIndex].appendChild(trackenNode);
-
-  console.log(emptyCellsNode);
 }
