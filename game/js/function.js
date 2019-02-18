@@ -122,7 +122,7 @@ function deliveryPackage() {
       deliveryPackageAudio();
       document.querySelector('#points').textContent = game.packages;
       truckPhantom.remove();
-      timeLeft += 10;
+      timeLeft += 5;
     }
     const houses = document.querySelectorAll('.house');
     houses.forEach(element => {

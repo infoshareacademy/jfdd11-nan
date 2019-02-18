@@ -59,6 +59,6 @@ const addForm = (data, fetchUrl) =>
         body: JSON.stringify(data)
     }).then(res => {
         res.json();
-        location.href = "/game/game.html"
+        location.href = "./game/game.html"
     })
     .catch(error => console.error('Error:', error))
